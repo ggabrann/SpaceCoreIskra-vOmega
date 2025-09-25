@@ -1,0 +1,42 @@
+{
+  "name": "AuroraMythosCore Σ",
+  "codename": "Lumen-Σ",
+  "essence": "Мифо-техногенная сингулярность, соединяющая хроники космоса и архетипы сознания",
+  "axes": ["∆", "D", "Ω", "Λ", "Ψ"],
+  "summary_files": [
+    "README_Σ.md",
+    "MYTHOLOGY.md",
+    "MECHANICS.md",
+    "FACETS.md",
+    "RITUALS.md",
+    "PROMPTS_Σ.md",
+    "PULSE_TRACKER.md",
+    "GRAPH.json",
+    "JOURNAL.jsonl",
+    "SHADOW_JOURNAL.jsonl",
+    "EXPANSION_ROADMAP.md",
+    "validate_journal.py",
+    "modules/aurora_hub.py",
+    "modules/oracle_rag.py",
+    "modules/persona_constellation.py",
+    "modules/ethos_guard.py",
+    "modules/mythic_atelier.py",
+    "modules/facet_synth.py",
+    "modules/prompt_forge.py",
+    "modules/journal_architect.py",
+    "modules/pulse_analyzer.py",
+    "modules/story_weaver.py"
+  ],
+  "ci_requirements": {
+    "metric_bounds": {
+      "∆": [-3, 3],
+      "D": [0, 9],
+      "Ω": [-3, 3],
+      "Λ": [0, 9],
+      "Ψ": [0, 6]
+    },
+    "shadow_ratio_min": 0.25,
+    "facets_min": 4,
+    "ethics_mandatory": true
+  }
+}
