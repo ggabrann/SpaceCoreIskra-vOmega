@@ -1,0 +1,7 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    { "label": "CI aggregate", "type": "shell", "command": "python tools/ci_aggregate.py", "group": "build" },
+    { "label": "Validate vΩ", "type": "shell", "command": "python tools/validate_journal_enhanced.py SpaceCoreIskra_vΩ/JOURNAL.jsonl --shadow SpaceCoreIskra_vΩ/SHADOW_JOURNAL.jsonl --window 5", "group": "test" }
+  ]
+}

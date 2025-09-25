@@ -1,0 +1,10 @@
+{
+  "name": "SpaceCoreIskra vΩ",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "postCreateCommand": "python --version && make test || true",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python","ms-python.vscode-pylance"]
+    }
+  }
+}

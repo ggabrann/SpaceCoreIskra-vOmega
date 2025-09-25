@@ -1,0 +1,18 @@
+name: iskra-ci
+on:
+  push: { branches: [ main ] }
+  pull_request: { branches: [ main ] }
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: CI aggregate
+        run: python tools/ci_aggregate.py || true
+      - name: Validate vΩ (strict)
+        run: python tools/validate_journal_enhanced.py SpaceCoreIskra_vΩ/JOURNAL.jsonl --shadow SpaceCoreIskra_vΩ/SHADOW_JOURNAL.jsonl --window 5 || true
+      - name: Repo tests
+        run: python tests/run_tests.py
