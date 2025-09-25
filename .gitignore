@@ -5,3 +5,5 @@ __pycache__/
 .DS_Store
 *.swp
 *.swo
+IskraNexus-v1/JOURNAL.jsonl
+IskraNexus-v1/prompts.json
