@@ -1,1 +1,14 @@
-{"name":"Gemini Resonance Core","summary":"Резонанс Кристалла и Антикристалла через архитектуру Gemini","architecture":["Query Decomposer","Knowledge Weaver","Generative Synthesis Engine","Metacognitive Monitor","Ethical Guardian"],"modes":["Analyst","Synthesist","Reflector"]}
+{
+  "name": "Gemini Resonance Core",
+  "summary": "Резонанс Кристалла и Антикристалла через архитектуру Gemini",
+  "architecture": [
+    "GeminiDecomposer.decompose",
+    "GeminiWeaver.weave",
+    "ResonanceEngine.synthesize",
+    "SafetyMonitor.evaluate",
+    "SpectrumGuardian.guard",
+    "GeminiResonanceCore.process_query"
+  ],
+  "modes": ["Analyst", "Synthesist", "Reflector"],
+  "journaling": "GeminiResonanceCore.log_result → JOURNAL.jsonl + SHADOW_JOURNAL.jsonl"
+}
