@@ -1,0 +1,19 @@
+{
+  "nodes": [
+    {"id": "AuroraHub", "type": "core"},
+    {"id": "EthosGuard", "type": "ethics"},
+    {"id": "OracleRAG", "type": "knowledge"},
+    {"id": "StoryWeaver", "type": "narrative"},
+    {"id": "PulseAnalyzer", "type": "ci"},
+    {"id": "ShadowArchive", "type": "shadow"}
+  ],
+  "edges": [
+    ["AuroraHub", "EthosGuard"],
+    ["AuroraHub", "OracleRAG"],
+    ["AuroraHub", "StoryWeaver"],
+    ["StoryWeaver", "PulseAnalyzer"],
+    ["PulseAnalyzer", "ShadowArchive"],
+    ["OracleRAG", "StoryWeaver"],
+    ["EthosGuard", "ShadowArchive"]
+  ]
+}
