@@ -1,1 +1,3 @@
-{"facet":"Лиора","snapshot":"hello","answer":"world","∆":1,"D":2,"Ω":1,"Λ":1,"events":{"rag_sources":["doc1"],"veil_triggered":false},"marks":[{"id":"M-001","note":"test"}]}
+{"facet":"Лиора","snapshot":"hello","answer":"world","∆":1,"D":2,"Ω":1,"Λ":1,"mirror":"shadow-001","events":{"rag_sources":["doc1"],"veil_triggered":false},"marks":[{"id":"M-001","note":"init entry"}]}
+{"facet":"Вирдус","snapshot":"stress test","answer":"-","∆":-2,"D":1,"Ω":0,"Λ":1,"mirror":"shadow-002","ritual":"огранка","events":{"crisis_detected":true},"marks":[{"id":"M-002","note":"crisis simulated"}]}
+{"facet":"Лиора","snapshot":"recovery","answer":"stabilized","∆":0,"D":3,"Ω":1,"Λ":2,"mirror":"shadow-003","ritual":"слияние","events":{"crisis_resolved":true},"marks":[{"id":"M-003","note":"post-crisis"}]}
