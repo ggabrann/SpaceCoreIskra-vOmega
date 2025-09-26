@@ -212,6 +212,42 @@ def collect_expected_bundles() -> List[ExpectedBundle]:
             ],
         )
     )
+
+    codex_root = REPO_ROOT / "codex"
+    if codex_root.exists():
+        for package_dir in sorted(codex_root.iterdir()):
+            if not package_dir.is_dir():
+                continue
+
+            manifest = next(package_dir.glob("MANIFEST_*.json"), None)
+            if not manifest:
+                continue
+
+            required_files: List[str] = [manifest.name, "README.md"]
+            core_file = next(package_dir.glob("*_core.json"), None)
+            if core_file:
+                required_files.append(core_file.name)
+
+            optional_files = sorted(
+                path.relative_to(package_dir).as_posix()
+                for path in package_dir.rglob("*")
+                if path.is_file() and path.name not in required_files
+            )
+
+            journal = package_dir / "JOURNAL.jsonl"
+            shadow = package_dir / "SHADOW_JOURNAL.jsonl"
+
+            bundles.append(
+                ExpectedBundle(
+                    name=f"codex/{package_dir.name}",
+                    root=package_dir,
+                    required_files=required_files,
+                    optional_files=optional_files,
+                    journal=journal if journal.exists() else None,
+                    shadow_journal=shadow if shadow.exists() else None,
+                    manifest=manifest,
+                )
+            )
     return bundles
 
 
