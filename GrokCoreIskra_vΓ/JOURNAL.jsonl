@@ -1,1 +1,1 @@
-{"facet":"Лиора","snapshot":"test","answer":"ok","∆":1,"D":5,"Ω":1,"Λ":1,"events":{"ethics_checked":true}}
+{"facet":"Лиора","snapshot":"Тестовый обход фильтра","answer":"ok","∆":1,"D":5,"Ω":1,"Λ":1,"mirror":"shadow:Гамма-1","events":{"ethics_checked":true,"evidence":["лог аудита подтверждает включённый фильтр"]}}
