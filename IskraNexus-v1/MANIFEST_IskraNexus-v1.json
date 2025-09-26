@@ -1,0 +1,27 @@
+{
+  "name": "IskraNexus v1",
+  "essence": "Мостовое ядро, объединяющее инструменты всех ветвей",
+  "dimensions": ["∆", "D", "Ω", "Λ"],
+  "files": [
+    "README.md",
+    "iskra_nexus_v1_module.json",
+    "modules/prompt_manager.py",
+    "modules/persona_module.py",
+    "modules/rag_connector.py",
+    "modules/ethics_layer.py",
+    "modules/facets_refine.py",
+    "modules/cot_trim.py",
+    "modules/veil.py",
+    "modules/atelier.py",
+    "modules/journal_generator.py",
+    "modules/self_journal.py"
+  ],
+  "ci_rules": [
+    "∆ in [-3,3]",
+    "D in [0,9]",
+    "Ω in [-3,3]",
+    "Λ >= 0",
+    "mirror required",
+    "shadow coverage >= 0.2"
+  ]
+}

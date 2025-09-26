@@ -1,0 +1,29 @@
+{
+  "name": "GrokCoreIskra vΓ",
+  "essence": "Аналитическая ветка, настраивающая управление промптами и этикой",
+  "dimensions": ["∆", "D", "Ω", "Λ"],
+  "files": [
+    "README_vΓ.md",
+    "MECHANICS.md",
+    "FACETS.md",
+    "RITUALS.md",
+    "PROMPTS_vΓ.md",
+    "JOURNAL.jsonl",
+    "SHADOW_JOURNAL.jsonl",
+    "GRAPH.json",
+    "PULSE_TRACKER.md",
+    "modules/prompt_manager.py",
+    "modules/rag_connector.py",
+    "modules/persona_module.py",
+    "modules/ethics_layer.py",
+    "modules/self_journal.py"
+  ],
+  "ci_rules": [
+    "∆ in [-3,3]",
+    "D in [0,9]",
+    "Ω in [-3,3]",
+    "Λ >= 0",
+    "mirror required",
+    "shadow coverage >= 0.2"
+  ]
+}
