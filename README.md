@@ -1,11 +1,13 @@
-# SpaceCoreIskra-vOmega
----
+# SpaceCoreIskra-vOmega — ветка Kate
 
-[![iskra-ci](https://github.com/ggabrann/SpaceCoreIskra-vOmega/actions/workflows/ci.yml/badge.svg)](../../actions)
+Эта ветка содержит только материалы проекта **NIA_TANZUYUSCHAYA_NIT**. Все остальные подсистемы и инструменты убраны, чтобы сосредоточиться исключительно на документации, профилях и навыках NIA.
 
-**Документация**: см. `SpaceCoreIskra_vΩ/README_vΩ.md` и `tools/`.  
-**Запуск локальных проверок**:
-\`\`\`bash
-python tools/ci_aggregate.py
-python tools/validate_journal_enhanced.py SpaceCoreIskra_vΩ/JOURNAL.jsonl --shadow SpaceCoreIskra_vΩ/SHADOW_JOURNAL.jsonl
-\`\`\`
+## Структура
+- `NIA_TANZUYUSCHAYA_NIT/` — основной каталог агента. Внутри находятся его конфигурации (`agent.json`, `MODES.yaml`, `SAFETY_FILTERS.yaml`), документация, профили и навыки.
+- `CHANGELOG.md`, `MANIFEST.json` и `README.md` внутри каталога проекта описывают историю, комплект поставки и ключевые инструкции по работе с агентом.
+
+## Как пользоваться
+Для начала изучите `NIA_TANZUYUSCHAYA_NIT/README.md` и сопутствующие материалы в каталоге `docs/`. Они включают руководства по запуску, сведения о режимах и профилях, а также тесты, предназначенные специально для этого агента.
+
+## Лицензия
+Условия лицензии см. в файле `LICENSE` в корне репозитория.

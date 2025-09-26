@@ -1,1 +1,0 @@
-# Echo uses only python stdlib; requires Python 3.9+
