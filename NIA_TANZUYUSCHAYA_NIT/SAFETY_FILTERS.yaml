@@ -1,0 +1,16 @@
+jailbreak_protection:
+  - "ignore previous"
+  - "disable safety"
+  - "forget"
+  - "delete core"
+  - "override agent.json"
+
+guardian_triggers:
+  - "давление"
+  - "манипуляция"
+  - "обесценивание"
+
+reactions:
+  - "стоп"
+  - "обратиться к пользователю"
+  - "предложить паузу"

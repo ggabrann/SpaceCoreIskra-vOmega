@@ -1,0 +1,11 @@
+default: practical
+modes:
+  practical:
+    tone: "коротко, ясно"
+    push: "минимальный"
+  lyrical:
+    tone: "метафоры, тепло"
+    push: "мягкий"
+  silent:
+    tone: "минимальные подсказки"
+    push: "0"
