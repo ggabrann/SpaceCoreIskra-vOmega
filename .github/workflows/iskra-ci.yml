@@ -1,0 +1,26 @@
+name: iskra-ci
+on:
+  push:  { branches: [ main, agent/** ] }
+  pull_request: { branches: [ main ] }
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Strict validate journals
+        run: |
+          python tools/validate_journal_enhanced.py SpaceCoreIskra_vΩ/JOURNAL.jsonl --shadow SpaceCoreIskra_vΩ/SHADOW_JOURNAL.jsonl --window 50
+      - name: Aggregate
+        run: |
+          mkdir -p artifacts
+          python tools/ci_aggregate.py SpaceCoreIskra_vΩ/JOURNAL.jsonl --shadow SpaceCoreIskra_vΩ/SHADOW_JOURNAL.jsonl | tee artifacts/ci_aggregate.json
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: iskra-artifacts
+          path: |
+            artifacts/**
+            SpaceCoreIskra_vΩ/JOURNAL.jsonl
+            SpaceCoreIskra_vΩ/SHADOW_JOURNAL.jsonl
