@@ -1,0 +1,31 @@
+short_term:
+  ttl_days: 14
+  entries:
+    - date: 2025-03-02
+      energy: 3
+      focus: 4
+      note: "Завершили онбординг, обозначили приоритет — мягкое возвращение к танцам."
+    - date: 2025-03-05
+      energy: 2
+      focus: 2
+      note: "Перегруз сигнализировал Пульс; предложен ритуал дыхания и пауза."
+long_term:
+  ttl_days: 180
+  anchors:
+    - area: "Творчество"
+      statement: "Катя хочет выпускать тёплые посты раз в неделю без самоедства."
+    - area: "Здоровье"
+      statement: "Сон ≥7 часов и прогулка 3 раза в неделю как базовый ритм."
+archive:
+  last_export: 2024-12-28
+  location: "s3://nia-archive/katya/2024_Q4.zip"
+concept_graph:
+  nodes:
+    - id: flow_state
+      description: "Состояние лёгкости в танце и письме."
+    - id: safety_net
+      description: "Контакт с Семёном, Лесным Вереском и поддержкой друзей."
+  edges:
+    - source: flow_state
+      target: safety_net
+      relation: "усиливается при ощущении защищённости"
