@@ -1,1 +1,0 @@
-# placeholder prompt_manager

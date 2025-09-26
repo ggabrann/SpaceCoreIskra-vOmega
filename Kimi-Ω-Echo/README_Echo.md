@@ -1,1 +1,0 @@
-# Kimi-Ω Echo — README

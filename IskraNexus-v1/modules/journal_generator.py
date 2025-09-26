@@ -1,1 +1,0 @@
-# placeholder journal_generator

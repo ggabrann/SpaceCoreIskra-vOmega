@@ -1,1 +1,0 @@
-{"name":"IskraNexus v1","summary":"интегрированная система на базе Кристалла/Антикристалла","modes":["banality","paradox","synthesis"],"components":["prompt_manager","rag_connector","persona_module","ethics_layer","self_journal","facets_refine","atelier","veil","cot_trim","journal_generator"]}
