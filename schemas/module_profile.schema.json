@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://iskra.space/schemas/module_profile.schema.json",
+  "type": "object",
+  "required": ["name"],
+  "properties": {
+    "name": { "type": "string", "minLength": 1 },
+    "version": { "type": "string" },
+    "summary": { "type": "string" },
+    "essence": { "type": "string" },
+    "entry_point": { "type": "string" },
+    "modules": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "components": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "core_modules": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "architecture": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "modes": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "minItems": 1
+    },
+    "metrics_bounds": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": { "type": "number" },
+        "minItems": 2,
+        "maxItems": 2
+      }
+    }
+  },
+  "anyOf": [
+    { "required": ["modules", "entry_point"] },
+    { "required": ["components"] },
+    { "required": ["core_modules"] },
+    { "required": ["architecture"] }
+  ],
+  "additionalProperties": false
+}

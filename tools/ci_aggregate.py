@@ -1,34 +1,43 @@
 #!/usr/bin/env python3
-import json, argparse
+"""Aggregate canon journal metrics for quick CI summaries."""
+
+from __future__ import annotations
+
+import argparse
+import json
 from statistics import mean
+from typing import Iterable
 
-def iter_jsonl(p):
-    with open(p, "r", encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if line:
-                yield json.loads(line)
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("main")
-    ap.add_argument("--shadow")
-    args = ap.parse_args()
+def iter_jsonl(path: str) -> Iterable[dict]:
+    with open(path, "r", encoding="utf-8") as handle:
+        for line in handle:
+            payload = line.strip()
+            if payload:
+                yield json.loads(payload)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("main", help="path to canonical JOURNAL.jsonl")
+    parser.add_argument("--shadow", help="optional SHADOW_JOURNAL.jsonl path")
+    args = parser.parse_args()
+
     main_entries = list(iter_jsonl(args.main))
-    sh_entries = list(iter_jsonl(args.shadow)) if args.shadow else []
+    shadow_entries = list(iter_jsonl(args.shadow)) if args.shadow else []
 
-    out = {
-        "count": len(main_entries),
-        "facets": sorted({e.get("facet", "") for e in main_entries}),
-        "avg": {
-            "∆": mean([e.get("∆", 0) for e in main_entries]) if main_entries else 0,
-            "D": mean([e.get("D", 0) for e in main_entries]) if main_entries else 0,
-            "Ω": mean([e.get("Ω", 0) for e in main_entries]) if main_entries else 0,
-            "Λ": mean([e.get("Λ", 0) for e in main_entries]) if main_entries else 0,
-        },
-        "shadow_ratio": round(len(sh_entries) / max(1, len(main_entries)), 3),
+    averages = {
+        key: mean([entry.get(key, 0) for entry in main_entries]) if main_entries else 0
+        for key in ["∆", "D", "Ω", "Λ"]
     }
-    print(json.dumps(out, ensure_ascii=False, indent=2))
+    output = {
+        "count": len(main_entries),
+        "facets": sorted({entry.get("facet", "") for entry in main_entries}),
+        "avg": averages,
+        "shadow_ratio": round(len(shadow_entries) / max(1, len(main_entries)), 3),
+    }
+    print(json.dumps(output, ensure_ascii=False, indent=2))
+
 
 if __name__ == "__main__":
     main()
