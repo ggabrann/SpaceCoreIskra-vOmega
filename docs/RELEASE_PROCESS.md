@@ -19,9 +19,11 @@ This checklist formalizes public launches for the SpaceCoreIskra canon. Every ta
 - [ ] `pytest`
 
 ## 4. Evaluation & Safety
-- [ ] `python tools/run_evals.py --config evals/configs/nightly.yaml`
+- [ ] `python tools/run_evals.py --config evals/configs/nightly.yaml --require-all`
 - [ ] `python tools/run_security_checks.py`
 - [ ] Review evaluation summaries under `artifacts/evals/` and attach highlights to release notes.
+
+> ℹ️ Ensure the evaluation CLIs (`lm_eval`, `helm-run`, `oaieval`) are available in the environment before running the release checklist. The strict mode above will fail fast if any are missing.
 
 ## 5. Documentation
 - [ ] Update `README.md` quick start, architecture, and persona authoring sections if interfaces changed.
