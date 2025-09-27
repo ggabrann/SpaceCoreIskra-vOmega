@@ -35,6 +35,16 @@ python tools/run_evals.py --config evals/configs/nightly.yaml
 | `tools/` | CI utilities, security harnesses, evaluation orchestrators. |
 | `cards/` | Model and dataset cards for transparency. |
 
+## RAG Audits
+
+Use `tools/rag_audit.py` to monitor chunk cohesion in indexed corpora:
+
+```bash
+python tools/rag_audit.py path/to/corpus.jsonl --sample-size 100 --threshold 0.35 --seed 13
+```
+
+Add `--report <path>` to persist the JSON summary under `artifacts/rag_reports/` for weekly reviews.
+
 ## Authoring a New Persona Module (5 Steps)
 
 1. Scaffold Unicode and ASCII mirrors, then add a manifest JSON conforming to `schemas/module_profile.schema.json`.

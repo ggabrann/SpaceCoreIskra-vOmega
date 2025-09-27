@@ -5,7 +5,15 @@ The Retrieval Augmented Generation (RAG) lattice underpins canon recall. This do
 ## 1. Chunking & Indexing
 - **Metric**: Chunk cohesion (ROUGE-L overlap between adjacent chunks).
 - **Procedure**: Sample 100 documents weekly, compute overlap statistics, and flag scores <0.35.
-- **Tooling**: `tools/rag_audit.py` (todo) to automate sampling and reporting.
+- **Tooling**: `tools/rag_audit.py` automates sampling and reporting. Run:
+  ```bash
+  python tools/rag_audit.py <path-to-chunked-corpus> \
+    --sample-size 100 \
+    --threshold 0.35 \
+    --seed 13 \
+    --report artifacts/rag_reports/<YYYY-MM-DD>_chunking.json
+  ```
+  The script accepts JSON/JSONL corpora where each entry contains `doc_id` and `chunks` fields.
 
 ## 2. Retriever Quality
 - **Metric**: Recall@5 and MRR@5 on curated ritual Q&A dataset.

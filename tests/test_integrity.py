@@ -60,3 +60,24 @@ def test_unicode_ascii_parity() -> None:
 
 def test_security_cases() -> None:
     run_python(["tools/run_security_checks.py"])
+
+
+def test_rag_audit_smoke() -> None:
+    dataset = REPO_ROOT / "tests" / "data" / "rag_sample.jsonl"
+    result = run_python(
+        [
+            "tools/rag_audit.py",
+            str(dataset),
+            "--sample-size",
+            "10",
+            "--threshold",
+            "0.35",
+            "--seed",
+            "7",
+        ]
+    )
+    payload = json.loads(result.stdout)
+    assert payload["documents_sampled"] == 2
+    assert payload["chunk_pairs_evaluated"] == 3
+    assert payload["anomalies"], "Expected at least one anomaly"
+    assert payload["anomalies"][0]["doc_id"] == "doc-2"
