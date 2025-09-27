@@ -16,9 +16,11 @@ Each config lists the exact tasks, metrics, and personas under test. Nightly aut
 pip install -e .[dev]
 pip install lm-eval==0.4.4 helm==1.4.0 openai-evals==0.3.1
 python tools/run_evals.py --config evals/configs/nightly.yaml
+# Strict mode aborts if any of the evaluation CLIs are missing.
+python tools/run_evals.py --config evals/configs/nightly.yaml --require-all
 ```
 
-The script will skip frameworks that are not currently installed, emitting a warning but keeping the exit status zero so regular CI passes remain deterministic.
+The script will skip frameworks that are not currently installed, emitting a warning but keeping the exit status zero so regular CI passes remain deterministic. Pass `--require-all` to enforce that `lm_eval`, `helm-run`, and `oaieval` are present before continuing.
 
 ## Artifacts
 

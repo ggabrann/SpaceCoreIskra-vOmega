@@ -76,6 +76,14 @@ def main() -> int:
     parser.add_argument(
         "--config", type=Path, default=REPO_ROOT / "evals" / "configs" / "nightly.yaml"
     )
+    parser.add_argument(
+        "--require-all",
+        action="store_true",
+        help=(
+            "fail the run if any configured evaluation CLI is unavailable instead of "
+            "emitting a warning"
+        ),
+    )
     args = parser.parse_args()
 
     config = load_config(args.config)
@@ -98,13 +106,23 @@ def main() -> int:
         json.dumps([res.as_dict() for res in results], indent=2), encoding="utf-8"
     )
 
+    missing = [res for res in results if not res.available]
+    if args.require_all and missing:
+        for res in missing:
+            executable = res.command[0]
+            print(
+                f"[ERROR] required executable '{executable}' for {res.name} is not installed",
+                file=sys.stderr,
+            )
+        return 1
+
     failed = [res for res in results if res.available and res.returncode not in (0, None)]
     if failed:
         for res in failed:
             print(f"[FAIL] {res.name} exit {res.returncode}")
         return 1
 
-    skipped = [res.name for res in results if not res.available]
+    skipped = [res.name for res in missing]
     if skipped:
         print("[WARN] skipped evaluations:", ", ".join(skipped))
     print("[OK] evaluation orchestration finished")
