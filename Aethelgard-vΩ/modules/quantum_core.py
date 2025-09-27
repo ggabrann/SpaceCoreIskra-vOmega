@@ -1,6 +1,7 @@
 """Quantum core orchestration utilities for Aethelgard-vΩ."""
 from __future__ import annotations
 
+from collections import OrderedDict
 from dataclasses import dataclass
 from datetime import datetime, timezone
 import json
@@ -78,18 +79,14 @@ class QuantumCore:
         if self._mode is None:
             raise RuntimeError("Mode is not initialised. Call set_mode() before synthesize().")
 
-        entry: Dict[str, object] = {
-            "timestamp": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
-            "mode": self._mode,
-            "query": query,
-        }
+        entry = OrderedDict((field, None) for field in JOURNAL_FIELDS)
+        entry["timestamp"] = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+        entry["mode"] = self._mode
+        entry["query"] = query
 
         for component in components:
             for key, value in component.items():
                 if key in JOURNAL_FIELDS:
                     entry[key] = value
 
-        for field in JOURNAL_FIELDS:
-            entry.setdefault(field, None)
-
-        return entry
+        return dict(entry)
