@@ -20,6 +20,7 @@ class EchoResult:
     """Container that holds the pipeline output for convenience."""
 
     input_text: str
+    metadata: Dict[str, object]
     memory: Dict[str, object]
     metrics: Dict[str, float]
     paradox: Dict[str, object]
@@ -29,6 +30,7 @@ class EchoResult:
     def as_dict(self) -> Dict[str, object]:
         return {
             "input": self.input_text,
+            "metadata": self.metadata,
             "memory": self.memory,
             "metrics": self.metrics,
             "paradox": self.paradox,
@@ -54,9 +56,9 @@ class Echo:
     def process(self, user_text: str, metadata: Optional[Dict[str, object]] = None) -> EchoResult:
         """Process ``user_text`` through the Echo pipeline."""
 
-        metadata = metadata or {}
+        safe_metadata = json.loads(json.dumps(metadata or {}, default=str))
 
-        memory_payload = load_memory(user_text, metadata)
+        memory_payload = load_memory(user_text, safe_metadata)
         metrics_payload = tune_metrics(user_text, memory_payload)
         paradox_payload = resolve_paradox(user_text, metrics_payload)
         ethics_payload = evaluate_ethics(paradox_payload["resolved_text"], metrics_payload)
@@ -64,6 +66,7 @@ class Echo:
 
         result = EchoResult(
             input_text=user_text,
+            metadata=safe_metadata,
             memory=memory_payload,
             metrics=metrics_payload,
             paradox=paradox_payload,
