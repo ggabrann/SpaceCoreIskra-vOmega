@@ -35,23 +35,20 @@ class RAGConnector:
                 base_score += 0.6
             if title_hit:
                 base_score += 0.4
-            total = base_score + 0.3 * doc.relevance + 0.1 * doc.recency
-            scored.append((total, doc))
+            total_score = base_score + 0.3 * doc.relevance + 0.1 * doc.recency
+            scored.append((total_score, doc))
         scored.sort(key=lambda item: item[0], reverse=True)
-        results = []
-        for score, doc in scored[:limit]:
-            if score <= 0:
-                continue
-            results.append(
-                {
-                    "title": doc.title,
-                    "snippet": doc.text[:200],
-                    "score": round(score, 3),
-                    "relevance": doc.relevance,
-                    "recency": doc.recency,
-                }
-            )
-        return results
+        return [
+            {
+                "title": doc.title,
+                "snippet": doc.text[:180],
+                "score": round(score, 3),
+                "relevance": doc.relevance,
+                "recency": doc.recency,
+            }
+            for score, doc in scored[:limit]
+            if score > 0
+        ]
 
 
 __all__ = ["RAGConnector", "Document"]
