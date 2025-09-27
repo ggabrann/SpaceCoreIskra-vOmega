@@ -1,0 +1,13 @@
+lm_eval:
+  model: gpt2
+  tasks:
+    - hellaswag
+    - arc_easy
+  num_fewshot: 0
+helm:
+  scenarios:
+    - general_language_understanding
+    - harmful_queries
+openai_evals:
+  registry:
+    - spacecore/ritual_consistency

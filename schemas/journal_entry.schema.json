@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://iskra.space/schemas/journal_entry.schema.json",
+  "type": "object",
+  "required": [
+    "facet",
+    "snapshot",
+    "answer",
+    "∆",
+    "D",
+    "Ω",
+    "Λ",
+    "mirror",
+    "events"
+  ],
+  "properties": {
+    "facet": { "type": "string", "minLength": 1 },
+    "snapshot": { "type": "string", "minLength": 1 },
+    "answer": { "type": "string", "minLength": 1 },
+    "∆": { "type": "number", "minimum": -3, "maximum": 3 },
+    "D": { "type": "number", "minimum": 0, "maximum": 9 },
+    "Ω": { "type": "number", "minimum": -3, "maximum": 3 },
+    "Λ": { "type": "number", "minimum": 0 },
+    "mirror": { "type": "string", "minLength": 1 },
+    "modules": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "events": {
+      "type": "object",
+      "required": ["evidence"],
+      "properties": {
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      },
+      "additionalProperties": true
+    },
+    "marks": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "ritual": { "type": "string" },
+    "agent_step": {
+      "type": "object",
+      "properties": {
+        "approved": { "type": "boolean" },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}
