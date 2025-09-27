@@ -5,3 +5,5 @@ __pycache__/
 .DS_Store
 *.swp
 *.swo
+artifacts/evals/
+spacecoreiskra.egg-info/

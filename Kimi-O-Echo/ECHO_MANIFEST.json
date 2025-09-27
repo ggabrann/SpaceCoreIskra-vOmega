@@ -1,0 +1,1 @@
+{"name":"Kimi-Ω Echo","version":"echo-1.0","entry_point":"echo_core.py","modules":["echo_core.py","echo_memory.py","paradox_split.py","ethics_echo.py","metric_tuner.py","veil_echo.py"],"metrics_bounds":{"∆":[-3,3],"D":[0,9],"Ω":[-3,3],"Λ":[0,9]}}

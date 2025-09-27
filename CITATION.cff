@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+title: SpaceCoreIskra Canon
+abstract: >-
+  SpaceCoreIskra is a multi-modal canon exploring crystallized intelligence
+  through structured journals, modular personas, and safety layers tuned for
+  public releases.
+authors:
+  - family-names: Iskra
+    given-names: Core Team
+repository-code: https://github.com/ggabrann/SpaceCoreIskra-vOmega
+license: MIT
+version: 0.1.0-dev
+keywords:
+  - large-language-model
+  - governance
+  - evaluation
+  - safety
+  - release-engineering

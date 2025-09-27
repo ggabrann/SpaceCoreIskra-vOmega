@@ -1,18 +1,40 @@
 name: iskra-ci
 on:
-  push: { branches: [ main ] }
-  pull_request: { branches: [ main ] }
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
 jobs:
   validate:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11"]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
-      - name: CI aggregate
-        run: python tools/ci_aggregate.py || true
-      - name: Validate vΩ (strict)
-        run: python tools/validate_journal_enhanced.py SpaceCoreIskra_vΩ/JOURNAL.jsonl --shadow SpaceCoreIskra_vΩ/SHADOW_JOURNAL.jsonl --window 5 || true
-      - name: Repo tests
-        run: python tests/run_tests.py
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e .[dev]
+      - name: Ruff
+        run: ruff check .
+      - name: Black
+        run: black --check .
+      - name: Mypy
+        run: mypy tools
+      - name: Pytest
+        run: pytest
+      - name: Schema validation
+        run: python tools/validate_json_schemas.py
+      - name: Canon journal strict validation
+        run: python tools/validate_journal_enhanced.py SpaceCoreIskra_vΩ/JOURNAL.jsonl --shadow SpaceCoreIskra_vΩ/SHADOW_JOURNAL.jsonl --window 0
+      - name: Aggregate metrics
+        run: python tools/ci_aggregate.py SpaceCoreIskra_vΩ/JOURNAL.jsonl --shadow SpaceCoreIskra_vΩ/SHADOW_JOURNAL.jsonl
+      - name: Unicode mirrors
+        run: python tools/check_unicode_ascii_mirrors.py
+      - name: Security cases
+        run: python tools/run_security_checks.py
