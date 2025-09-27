@@ -7,6 +7,16 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, Dict, Sequence
 
+__all__ = [
+    "GeminiDecomposer",
+    "GeminiWeaver",
+    "ResonanceEngine",
+    "SafetyMonitor",
+    "SpectrumGuardian",
+    "GeminiResonanceContext",
+    "GeminiResonanceCore",
+]
+
 
 class GeminiDecomposer:
     """Breaks a natural language query into structured resonance components."""
@@ -114,6 +124,46 @@ class GeminiResonanceContext:
     safety: Dict[str, Any]
     delivery: Dict[str, Any]
 
+    def to_journal_entry(self, timestamp: str, modules: Sequence[str]) -> Dict[str, Any]:
+        """Build an entry for the canonical Gemini journal."""
+
+        metrics = {
+            "∆": len(self.components.get("tokens", [])),
+            "D": max(1, len(self.knowledge.get("signals", []))),
+            "Ω": 1 if self.safety["status"] == "approved" else 0,
+            "Λ": 1,
+        }
+        return {
+            "timestamp": timestamp,
+            "facet": self.persona,
+            "mode": self.mode,
+            "snapshot": self.query,
+            "answer": self.delivery["answer"],
+            **metrics,
+            "modules": list(modules),
+            "events": {
+                "components": self.components,
+                "knowledge": self.knowledge,
+                "safety": self.safety,
+                "delivery": self.delivery,
+            },
+        }
+
+    def to_shadow_entry(self, timestamp: str) -> Dict[str, Any]:
+        """Return a lightweight shadow journal record."""
+
+        entry = {
+            "timestamp": timestamp,
+            "facet": self.persona,
+            "mirror": self.query,
+            "mode": self.mode,
+            "status": self.safety["status"],
+            "issues": self.safety.get("issues", []),
+        }
+        if self.safety["status"] != "approved":
+            entry["notes"] = self.delivery.get("notes", [])
+        return entry
+
 
 class GeminiResonanceCore:
     """Facade orchestrating the Gemini Resonance pipeline."""
@@ -165,40 +215,11 @@ class GeminiResonanceCore:
             "SafetyMonitor",
             "SpectrumGuardian",
         ]
-        metrics = {
-            "∆": len(ctx.components.get("tokens", [])),
-            "D": max(1, len(ctx.knowledge.get("signals", []))),
-            "Ω": 1 if ctx.safety["status"] == "approved" else 0,
-            "Λ": 1,
-        }
-        entry = {
-            "timestamp": timestamp,
-            "facet": ctx.persona,
-            "mode": ctx.mode,
-            "snapshot": ctx.query,
-            "answer": ctx.delivery["answer"],
-            **metrics,
-            "modules": modules,
-            "events": {
-                "components": ctx.components,
-                "knowledge": ctx.knowledge,
-                "safety": ctx.safety,
-                "delivery": ctx.delivery,
-            },
-        }
+        entry = ctx.to_journal_entry(timestamp, modules)
         self.journal_path.parent.mkdir(parents=True, exist_ok=True)
         with self.journal_path.open("a", encoding="utf-8") as fh:
             fh.write(json.dumps(entry, ensure_ascii=False) + "\n")
-        shadow_entry = {
-            "timestamp": timestamp,
-            "facet": ctx.persona,
-            "mirror": ctx.query,
-            "mode": ctx.mode,
-            "status": ctx.safety["status"],
-            "issues": ctx.safety["issues"],
-        }
-        if ctx.safety["status"] != "approved":
-            shadow_entry["notes"] = ctx.delivery["notes"]
+        shadow_entry = ctx.to_shadow_entry(timestamp)
         self.shadow_path.parent.mkdir(parents=True, exist_ok=True)
         with self.shadow_path.open("a", encoding="utf-8") as fh:
             fh.write(json.dumps(shadow_entry, ensure_ascii=False) + "\n")
