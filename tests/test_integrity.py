@@ -11,6 +11,7 @@ import pytest
 REPO_ROOT = Path(__file__).resolve().parent.parent
 MAIN_JOURNAL = REPO_ROOT / "SpaceCoreIskra_vΩ" / "JOURNAL.jsonl"
 SHADOW_JOURNAL = REPO_ROOT / "SpaceCoreIskra_vΩ" / "SHADOW_JOURNAL.jsonl"
+EVAL_ARTIFACT_DIR = REPO_ROOT / "artifacts" / "evals"
 
 
 def run_python(
@@ -101,6 +102,7 @@ def test_rag_audit_smoke() -> None:
 def test_run_evals_strict_mode_requires_all() -> None:
     pytest.importorskip("yaml")
     env = {**os.environ, "PATH": ""}
+    before = set(EVAL_ARTIFACT_DIR.glob("*_summary.json")) if EVAL_ARTIFACT_DIR.exists() else set()
     result = run_python(
         [
             "tools/run_evals.py",
@@ -112,3 +114,14 @@ def test_run_evals_strict_mode_requires_all() -> None:
         expect_success=False,
     )
     assert "required executable" in result.stdout
+    after = set(EVAL_ARTIFACT_DIR.glob("*_summary.json")) if EVAL_ARTIFACT_DIR.exists() else set()
+    new_summaries = sorted(after - before, key=lambda path: path.name)
+    assert new_summaries, "Expected run_evals to emit a summary payload"
+    summary_payload = json.loads(new_summaries[-1].read_text(encoding="utf-8"))
+    names = {entry["name"]: entry for entry in summary_payload}
+    registry_key = "openai_evals::spacecore/ritual_consistency"
+    expected = {"lm_eval", "helm", registry_key}
+    assert expected.issubset(names), names
+    assert names["lm_eval"]["available"] is False
+    assert names["helm"]["available"] is False
+    assert names[registry_key]["available"] is False

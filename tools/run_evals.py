@@ -99,9 +99,14 @@ def main() -> int:
         results.append(EvalResult(label, command, True, returncode))
 
     summary_path = ARTIFACT_DIR / f"{timestamp}_summary.json"
-    summary_path.write_text(
-        json.dumps([res.as_dict() for res in results], indent=2), encoding="utf-8"
-    )
+    summary_payload = [res.as_dict() for res in results]
+    summary_path.write_text(json.dumps(summary_payload, indent=2), encoding="utf-8")
+
+    try:
+        relative_summary = summary_path.relative_to(REPO_ROOT)
+    except ValueError:
+        relative_summary = summary_path
+    print(f"[INFO] wrote eval summary to {relative_summary}")
 
     failed = [res for res in results if res.available and res.returncode not in (0, None)]
     if failed:
