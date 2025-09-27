@@ -1,0 +1,14 @@
+model: gpt-5-codex
+reasoning: medium
+approvals: auto
+allow_network: false
+setup:
+  - make setup
+runbook:
+  lint: make lint
+  format: make format
+  typecheck: make typecheck
+  test: make test
+  ci: make ci
+  security: make security
+  schemas: make schemas

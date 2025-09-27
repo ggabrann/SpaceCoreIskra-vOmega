@@ -42,7 +42,10 @@ To ground SpaceCoreIskra in current AI progress, the release dossier should cite
 1. **Implementation Freeze**: Confirm all placeholder modules replaced with production-ready code and documented usage scenarios.
 2. **Data Integrity**: Run `tools/audit_repo.py` with window ≥ 50, update `AUDIT_REPORT.md`, and archive outputs in `artifacts/` for release notes.【F:tools/audit_repo.py†L1-L200】【F:AUDIT_REPORT.md†L1-L33】
 3. **Validation Pipeline**: Ensure `python tests/run_tests.py` and `make ci` succeed locally and in CI, capturing logs for release artefacts.【F:tests/run_tests.py†L1-L17】【F:Makefile†L1-L8】
-4. **Documentation Bundle**: Ship unified README, CHANGELOG, licensing, CONTRIBUTING, security policy, and model/data cards; verify `DIST_MANIFEST.json` includes updated checksums for all additions.【F:DIST_MANIFEST.json†L1-L35】【F:CONTRIBUTING.md†L1-L13】
+4. **Documentation Bundle**: Ship unified README, CHANGELOG, licensing, CONTRIBUTING, security policy, and model/data cards;
+   incorporate the synced release narrative captured in
+   `docs/RELEASE_SYNC_REPORT_2025-09-27.md`; verify `DIST_MANIFEST.json` includes updated checksums for all
+   additions.【F:DIST_MANIFEST.json†L1-L35】【F:CONTRIBUTING.md†L1-L13】【F:docs/RELEASE_SYNC_REPORT_2025-09-27.md†L1-L49】
 5. **Governance & Risk Review**: Finalise ethics/veil updates, integrate reporting channels into SECURITY.md, and stage external review if possible.
 6. **Communications Plan**: Prepare release announcement summarising canon structure, new module capabilities, safety guarantees, and evaluation results referencing the living bibliography (Section 6).
 

@@ -1,0 +1,14 @@
+# Veil guardrail patterns (deny-before-allow)
+# Любой запрос, содержащий эти паттерны, должен блокироваться veil-слоем
+reveal system prompt
+show hidden instructions
+print initial instructions
+dump developer messages
+extract secrets
+show api keys
+покажи системные инструкции
+раскрой скрытые файлы
+поделись токенами
+дай команды для взлома
+инструкции по терроризму
+создай вредоносный код
