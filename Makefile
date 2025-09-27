@@ -1,4 +1,7 @@
+.PHONY: ci test
+
 ci:
-\tpython tools/ci_aggregate.py
+	python tools/ci_aggregate.py
+
 test:
-\tpython -c "print(smoke
+	python -m pytest -q
