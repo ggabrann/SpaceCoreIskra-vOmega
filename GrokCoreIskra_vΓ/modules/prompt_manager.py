@@ -7,7 +7,11 @@ class PromptManager:
 
     def get_prompt(self, name, metrics):
         prompt = self.prompts.get(name, "")
-        metrics = metrics or {}
+
+        if not isinstance(metrics, dict):
+            metrics = {}
+        else:
+            metrics = metrics or {}
 
         delta = metrics.get("∆")
         d_value = metrics.get("D")
