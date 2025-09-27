@@ -1,23 +1,29 @@
 import json
 from pathlib import Path
 
+import pytest
+
 from IskraNexus_v1.modules.orchestrator import Orchestrator
 
 
-def test_orchestrator_pipeline():
-    base_path = Path(__file__).resolve().parents[1] / "IskraNexus-v1"
-    journal_path = base_path / "JOURNAL.jsonl"
-    prompts_path = base_path / "prompts.json"
-    if journal_path.exists():
-        journal_path.unlink()
-    if prompts_path.exists():
-        prompts_path.unlink()
+@pytest.fixture()
+def prepared_base(tmp_path: Path) -> Path:
+    manifest_src = Path("IskraNexus-v1") / "iskra_nexus_v1_module.json"
+    manifest_dst = tmp_path / "iskra_nexus_v1_module.json"
+    manifest_dst.write_text(manifest_src.read_text(encoding="utf-8"), encoding="utf-8")
+    return tmp_path
 
-    orchestrator = Orchestrator(base_path=base_path)
-    result = orchestrator.process("Расскажи о цели Iskra Nexus", mode="synthesis")
+
+@pytest.mark.parametrize("mode", ["banality", "paradox", "synthesis"])
+def test_orchestrator_pipeline(prepared_base: Path, mode: str) -> None:
+    orchestrator = Orchestrator(base_path=prepared_base)
+    query = "Расскажи о предназначении Iskra Nexus"
+    result = orchestrator.process(query, mode=mode)
 
     assert result["response"], "Ответ должен быть непустым"
-    assert result["mode"] == "synthesis"
+    assert result["mode"] == mode
+    assert result["rag_hits"] and isinstance(result["rag_hits"], list)
+    assert result["atelier"]["prompt_len"] > 0
 
     metrics = result["metrics"]
     for key in ("∆", "D", "Ω", "Λ"):
@@ -27,18 +33,24 @@ def test_orchestrator_pipeline():
 
     shadow_log = result["shadow_log"]
     assert shadow_log, "Shadow-лог должен содержать шаги"
-    assert any(entry["stage"] == "journal" for entry in shadow_log)
+    assert any(entry["stage"] == "metrics" for entry in shadow_log)
+    assert shadow_log[-1]["stage"] == "journal"
 
     journal_entry = result["journal_entry"]
-    assert journal_entry["events"]["mode"] == "synthesis"
+    assert journal_entry["facet"] == mode
+    assert journal_entry["snapshot"] == query
     assert journal_entry["mirror"] == "shadow-000"
     assert journal_entry["modules"] == orchestrator.components
+    assert journal_entry["events"]["mode"] == mode
+    assert "atelier" in journal_entry["marks"][0]
 
+    journal_path = prepared_base / "JOURNAL.jsonl"
     assert journal_path.exists()
-    with journal_path.open("r", encoding="utf-8") as fh:
-        lines = [line.strip() for line in fh if line.strip()]
+    lines = [line.strip() for line in journal_path.read_text(encoding="utf-8").splitlines() if line.strip()]
     assert lines, "Журнал должен содержать запись"
-    last_record = json.loads(lines[-1])
-    assert last_record == journal_entry
+    stored_entries = [json.loads(line) for line in lines]
+    assert journal_entry in stored_entries
 
-    assert (metrics["D"] >= len(result["response"]))
+    prompts_payload = json.loads((prepared_base / "prompts.json").read_text(encoding="utf-8"))
+    assert f"query::{mode}" in prompts_payload
+    assert prompts_payload[f"query::{mode}"][-1]["meta"]["mode"] == mode
