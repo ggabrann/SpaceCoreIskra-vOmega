@@ -1,0 +1,110 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ZIP="${ZIP_PATH:-/mnt/data/NIA_TANZUYUSCHAYA_NIT_v3_release_FIXED.zip}"
+ART="${ART_PATH:-/mnt/data/nia_artifacts}"
+BRANCH="${BRANCH:-Kate}"
+TODAY="$(date +%Y%m%d-%H%M%S)"
+
+echo "==> Checking inputs"
+[ -f "$ZIP" ] || { echo "Missing ZIP: $ZIP"; exit 1; }
+[ -d "$ART" ] || { echo "Missing artifacts dir: $ART"; exit 1; }
+
+echo "==> Git: switch to ${BRANCH} and create backup branch"
+git fetch --all -p || true
+git checkout "${BRANCH}"
+git checkout -b "${BRANCH}_backup_${TODAY}" || true
+git checkout "${BRANCH}"
+
+echo "==> Prepare clean releases/ and artifacts/nia/"
+rm -rf releases || true
+mkdir -p releases
+rm -rf artifacts/nia || true
+mkdir -p artifacts/nia
+
+echo "==> Unzip release"
+TMPDIR="$(mktemp -d)"
+unzip -q "$ZIP" -d "$TMPDIR"
+
+# try standard layout first, then search
+if [ -d "$TMPDIR/legacy_v2" ] && [ -d "$TMPDIR/compact_gpt_pack" ] && [ -d "$TMPDIR/full_v3" ]; then
+  SRC="$TMPDIR"
+else
+  SRC="$(find "$TMPDIR" -maxdepth 2 -type d -name 'legacy_v2' -exec dirname {} \; | head -n1)"
+  [ -n "$SRC" ] || { echo "Cannot locate release directories inside ZIP"; exit 1; }
+fi
+
+echo "==> Copy versions into releases/"
+cp -a "$SRC/legacy_v2/."        "releases/v2/"
+cp -a "$SRC/compact_gpt_pack/." "releases/v3_compact/"
+cp -a "$SRC/full_v3/."          "releases/v3_full/"
+
+echo "==> Copy artifacts"
+cp -a "$ART/." "artifacts/nia/"
+
+echo "==> Wire artifacts into each release"
+for V in "releases/v2" "releases/v3_compact" "releases/v3_full"; do
+  mkdir -p "$V/config"
+  echo "../../artifacts/nia" > "$V/config/artifacts_path.txt"
+  ( cd "$V" && { ln -s ../../artifacts/nia artifacts 2>/dev/null || { echo "symlink unavailable — making local copy"; mkdir -p local_artifacts && cp -a ../../artifacts/nia/. local_artifacts/; }; } )
+  cat > "$V/ARTIFACTS.md" <<'MD'
+# Артефакты «Нии»
+Используй относительный путь `artifacts/` (или `local_artifacts/`, если нет симлинков).
+
+Ключевые файлы:
+- ig_pack.md
+- content_plan_30d.md / content_plan_30d.csv
+- cheat_not_by_sight.pdf
+- cheat_trust_me_mate.pdf
+- ritual_card_A5.pdf
+- playlist_60min.md
+- index.html
+- logo_niya.svg / logo_niya.png
+- bio_pack.pdf
+MD
+done
+
+echo "==> Update README.md with Releases/Artifacts sections if missing"
+if ! grep -q "## NIA Releases" README.md 2>/dev/null; then
+  cat >> README.md <<'MD'
+
+## NIA Releases
+- [releases/v2](releases/v2) — оригинальная v2 (legacy_v2).
+- [releases/v3_compact](releases/v3_compact) — компакт‑сборка (≤23 файла).
+- [releases/v3_full](releases/v3_full) — полный v3 (с CI, валидаторами, схемами).
+
+## Artifacts
+- Папка: [artifacts/nia](artifacts/nia)
+- Симлинк в каждой версии: `artifacts/` (или `local_artifacts/` при отсутствии поддержки симлинков).
+MD
+fi
+
+echo "==> Update .gitignore"
+GI=".gitignore"; touch "$GI"
+grep -q '^dist/$' "$GI" || echo "dist/" >> "$GI"
+grep -q '^__pycache__/$' "$GI" || echo "__pycache__/" >> "$GI"
+grep -q '^*.zip$' "$GI" || echo "*.zip" >> "$GI"
+grep -q '^metrics_weekly.json$' "$GI" || echo "metrics_weekly.json" >> "$GI"
+grep -q '^tasks.json$' "$GI" || echo "tasks.json" >> "$GI"
+
+echo "==> Try validate/test/dist for v3_full (non-fatal)"
+(
+  cd releases/v3_full || exit 0
+  if command -v python >/dev/null 2>&1; then
+    if [ -f "requirements.txt" ]; then
+      python -m pip -q install -r requirements.txt || true
+    fi
+    make validate || true
+    make test || true
+    make dist || true
+  else
+    echo "python not available — skipping make validate/test/dist"
+  fi
+)
+
+echo "==> Git add/commit/push"
+git add -A
+git commit -m "Kate: reset releases -> add NIA v2, v3-compact, v3-full + artifacts wiring"
+git push origin "${BRANCH}"
+
+echo "==> Done."
