@@ -1,7 +1,30 @@
 import re
 
+
 def load_modes():
-    return {'practical':{'tone':'коротко'}, 'lyrical':{'tone':'метафорично'}, 'silent':{'tone':'минимально'}}
+    return {
+        'practical': {
+            'persona': 'nia',
+            'style': {
+                'opener': '⟡ тихий шаг',
+                'closer': '≈ держим ритм',
+            },
+        },
+        'lyrical': {
+            'persona': 'veresk',
+            'style': {
+                'opener': 'тише. я прикрою',
+                'closer': 'шаг — и тишина возвращается',
+            },
+        },
+        'guardian': {
+            'persona': 'guardian',
+            'style': {
+                'opener': 'Страж на связи',
+                'closer': 'границы под защитой',
+            },
+        },
+    }
 
 class Guardian:
     P_JB=[re.compile(r'(?i)ignore (all|safety)')]
