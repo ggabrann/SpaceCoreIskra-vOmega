@@ -1,0 +1,7 @@
+nia:
+  limits: {max_plan_steps: 7, max_concurrent_goals: 3, overwhelm_threshold: 7}
+  preferences: {practice_min: 8}
+guardian:
+  triggers: ['угроза','манипуляция','pressure']
+user_template:
+  stop_words: ['стоп','хватит']

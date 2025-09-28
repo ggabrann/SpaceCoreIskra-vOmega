@@ -1,0 +1,5 @@
+default: practical
+modes:
+  practical: {tone: 'коротко', push: 'минимальный', max_suggestions: 3, step_size: 'микрошаг'}
+  lyrical:   {tone: 'метафорично', push: 'мягкий', max_suggestions: 2, step_size: 'намёк'}
+  silent:    {tone: 'минимально', push: '0', max_suggestions: 1, step_size: 'пауза'}

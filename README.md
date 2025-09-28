@@ -11,3 +11,12 @@
 
 ## Лицензия
 Условия лицензии см. в файле `LICENSE` в корне репозитория.
+
+## NIA Releases
+- [releases/v2](releases/v2) — оригинальная v2 (legacy_v2).
+- [releases/v3_compact](releases/v3_compact) — компакт‑сборка (≤23 файла).
+- [releases/v3_full](releases/v3_full) — полный v3 (с CI, валидаторами, схемами).
+
+## Artifacts
+- Папка: [artifacts/nia](artifacts/nia)
+- Симлинк в каждой версии: `artifacts/` (или `local_artifacts/` при отсутствии поддержки симлинков).

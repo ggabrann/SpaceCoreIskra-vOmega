@@ -1,0 +1,33 @@
+{
+  "name": "NIA — Танцующая Нить (compact pack)",
+  "version": "3.0.0-compact",
+  "date": "2025-09-27T13:18:06.397587",
+  "files": [
+    "INSTRUCTIONS.md",
+    "README.md",
+    "GUIDES.md",
+    "PROJECT.md",
+    "AGENT.yaml",
+    "PROFILES.yaml",
+    "DEVSETUP.md",
+    "skills.md",
+    "memory/short_term.jsonl",
+    "memory/long_term.jsonl",
+    "memory/archive.jsonl",
+    "memory/concepts.graph.yaml",
+    "tools.py",
+    "pipelines.py",
+    "src/nia_core.py",
+    "src/nia_core_ext.py",
+    "src/nia_memory.py",
+    "src/nia_vector.py",
+    "src/nia_calendar.py",
+    "src/nia_tasks.py",
+    "src/nia_autocalib.py",
+    "examples/nia.ics",
+    "tests.py",
+    "cli.py",
+    "requirements.txt",
+    ".gitignore"
+  ]
+}
