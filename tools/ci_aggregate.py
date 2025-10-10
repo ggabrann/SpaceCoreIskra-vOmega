@@ -61,12 +61,22 @@ def main() -> None:
     else:
         shadow_entries = []
 
+    def coerce_float(value: object) -> float | None:
+        if isinstance(value, (int, float)):
+            return float(value)
+        if isinstance(value, str):
+            try:
+                return float(value)
+            except ValueError:
+                return None
+        return None
+
     def average_for(key: str) -> float:
         values = []
         for entry in main_entries:
-            value = entry.get(key)
-            if isinstance(value, (int, float)):
-                values.append(float(value))
+            parsed = coerce_float(entry.get(key))
+            if parsed is not None:
+                values.append(parsed)
         return round(mean(values), 3) if values else 0.0
 
     averages = {key: average_for(key) for key in ["∆", "D", "Ω", "Λ"]}

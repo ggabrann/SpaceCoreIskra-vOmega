@@ -104,11 +104,26 @@ def test_ci_aggregate_window_slice() -> None:
     )
     assert payload["facets"] == expected_facets
 
+    def coerce_float(value: object) -> float | None:
+        if isinstance(value, (int, float)):
+            return float(value)
+        if isinstance(value, str):
+            try:
+                return float(value)
+            except ValueError:
+                return None
+        return None
+
     def average_for(key: str) -> float:
-        values = [float(entry.get(key, 0)) for entry in expected_entries]
+        values = [
+            parsed
+            for parsed in (coerce_float(entry.get(key)) for entry in expected_entries)
+            if parsed is not None
+        ]
         return round(sum(values) / len(values), 3) if values else 0.0
 
-    assert payload["avg"]["∆"] == pytest.approx(average_for("∆"))
+    for metric in ["∆", "D", "Ω", "Λ"]:
+        assert payload["avg"][metric] == pytest.approx(average_for(metric))
 
     mirrors = {
         entry.get("mirror")
@@ -120,6 +135,51 @@ def test_ci_aggregate_window_slice() -> None:
     ]
     expected_ratio = round(len(expected_shadow) / max(1, len(expected_entries)), 3)
     assert payload["shadow_ratio"] == expected_ratio
+
+
+def test_ci_aggregate_handles_string_metrics(tmp_path: Path) -> None:
+    main_path = tmp_path / "main.jsonl"
+    shadow_path = tmp_path / "shadow.jsonl"
+    main_entries = [
+        {
+            "facet": "Kain",
+            "∆": "1.5",
+            "D": 0.7,
+            "Ω": "not-a-number",
+            "Λ": 0,
+            "mirror": "abc",
+        },
+        {
+            "facet": " ",
+            "∆": 2,
+            "Ω": 0.25,
+            "mirror": "def",
+        },
+    ]
+    shadow_entries = [{"mirror": "abc"}, {"mirror": "zzz"}]
+    main_path.write_text("\n".join(json.dumps(entry) for entry in main_entries), encoding="utf-8")
+    shadow_path.write_text(
+        "\n".join(json.dumps(entry) for entry in shadow_entries), encoding="utf-8"
+    )
+
+    payload = json.loads(
+        run_python(
+            [
+                "tools/ci_aggregate.py",
+                str(main_path),
+                "--shadow",
+                str(shadow_path),
+            ]
+        ).stdout
+    )
+
+    assert payload["count"] == 2
+    assert payload["facets"] == ["Kain"]
+    assert payload["avg"]["∆"] == pytest.approx(round((1.5 + 2) / 2, 3))
+    assert payload["avg"]["D"] == pytest.approx(0.7)
+    assert payload["avg"]["Ω"] == pytest.approx(0.25)
+    assert payload["avg"]["Λ"] == pytest.approx(0.0)
+    assert payload["shadow_ratio"] == round(2 / 2, 3)
 
 
 def test_ci_aggregate_zero_window_matches_full_run() -> None:
