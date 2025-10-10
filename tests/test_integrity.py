@@ -71,6 +71,7 @@ def test_ci_aggregate_output() -> None:
     )
     payload = json.loads(result.stdout)
     assert "count" in payload and payload["count"] >= 0
+    assert "evidence_coverage" in payload
 
 
 def test_ci_aggregate_window_slice() -> None:
@@ -122,6 +123,25 @@ def test_ci_aggregate_window_slice() -> None:
         ]
         return round(sum(values) / len(values), 3) if values else 0.0
 
+    def iter_items(candidate: object) -> list[object]:
+        if isinstance(candidate, list):
+            return [item for item in candidate]
+        if candidate is None:
+            return []
+        return [candidate]
+
+    def has_evidence(entry: dict) -> bool:
+        direct = iter_items(entry.get("evidence"))
+        events = entry.get("events") if isinstance(entry.get("events"), dict) else {}
+        nested = iter_items(events.get("evidence")) if isinstance(events, dict) else []
+
+        for candidate in [*direct, *nested]:
+            if isinstance(candidate, str) and candidate.strip():
+                return True
+            if candidate:
+                return True
+        return False
+
     for metric in ["∆", "D", "Ω", "Λ"]:
         assert payload["avg"][metric] == pytest.approx(average_for(metric))
 
@@ -136,6 +156,12 @@ def test_ci_aggregate_window_slice() -> None:
     expected_ratio = round(len(expected_shadow) / max(1, len(expected_entries)), 3)
     assert payload["shadow_ratio"] == expected_ratio
 
+    evidence_hits = sum(1 for entry in expected_entries if has_evidence(entry))
+    expected_coverage = (
+        round(evidence_hits / len(expected_entries), 3) if expected_entries else 0.0
+    )
+    assert payload["evidence_coverage"] == expected_coverage
+
 
 def test_ci_aggregate_handles_string_metrics(tmp_path: Path) -> None:
     main_path = tmp_path / "main.jsonl"
@@ -148,12 +174,14 @@ def test_ci_aggregate_handles_string_metrics(tmp_path: Path) -> None:
             "Ω": "not-a-number",
             "Λ": 0,
             "mirror": "abc",
+            "events": {"evidence": ["artifacts/one.md"]},
         },
         {
             "facet": " ",
             "∆": 2,
             "Ω": 0.25,
             "mirror": "def",
+            "events": {},
         },
     ]
     shadow_entries = [{"mirror": "abc"}, {"mirror": "zzz"}]
@@ -180,6 +208,7 @@ def test_ci_aggregate_handles_string_metrics(tmp_path: Path) -> None:
     assert payload["avg"]["Ω"] == pytest.approx(0.25)
     assert payload["avg"]["Λ"] == pytest.approx(0.0)
     assert payload["shadow_ratio"] == round(2 / 2, 3)
+    assert payload["evidence_coverage"] == pytest.approx(0.5)
 
 
 def test_ci_aggregate_zero_window_matches_full_run() -> None:
@@ -230,6 +259,7 @@ def test_ci_aggregate_handles_empty_journals(tmp_path: Path) -> None:
     assert payload["facets"] == []
     assert payload["avg"] == {"∆": 0.0, "D": 0.0, "Ω": 0.0, "Λ": 0.0}
     assert payload["shadow_ratio"] == 0.0
+    assert payload["evidence_coverage"] == 0.0
 
 
 def test_unicode_ascii_parity() -> None:

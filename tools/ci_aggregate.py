@@ -80,6 +80,34 @@ def main() -> None:
         return round(mean(values), 3) if values else 0.0
 
     averages = {key: average_for(key) for key in ["∆", "D", "Ω", "Λ"]}
+
+    def has_evidence(entry: dict) -> bool:
+        """Return True when an entry references supporting evidence."""
+
+        def iter_items(candidate: object) -> Iterable[object]:
+            if isinstance(candidate, list):
+                yield from candidate
+            elif candidate is not None:
+                yield candidate
+
+        direct = entry.get("evidence")
+        events = entry.get("events") if isinstance(entry.get("events"), dict) else {}
+        nested = events.get("evidence") if isinstance(events, dict) else None
+
+        for candidate in iter_items(direct):
+            if isinstance(candidate, str) and candidate.strip():
+                return True
+            if candidate:
+                return True
+        for candidate in iter_items(nested):
+            if isinstance(candidate, str) and candidate.strip():
+                return True
+            if candidate:
+                return True
+        return False
+
+    evidence_hits = sum(1 for entry in main_entries if has_evidence(entry))
+
     output = {
         "count": len(main_entries),
         "total_count": len(all_main_entries),
@@ -95,6 +123,9 @@ def main() -> None:
             round(len(shadow_entries) / len(main_entries), 3)
             if main_entries
             else 0.0
+        ),
+        "evidence_coverage": (
+            round(evidence_hits / len(main_entries), 3) if main_entries else 0.0
         ),
     }
     print(json.dumps(output, ensure_ascii=False, indent=2))
