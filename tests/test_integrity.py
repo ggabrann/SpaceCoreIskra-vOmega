@@ -95,7 +95,13 @@ def test_ci_aggregate_window_slice() -> None:
     expected_entries = main_entries[-window:]
     assert payload["count"] == len(expected_entries)
     assert payload["total_count"] == len(main_entries)
-    expected_facets = sorted({entry.get("facet", "") for entry in expected_entries})
+    expected_facets = sorted(
+        {
+            entry.get("facet")
+            for entry in expected_entries
+            if isinstance(entry.get("facet"), str) and entry.get("facet").strip()
+        }
+    )
     assert payload["facets"] == expected_facets
 
     def average_for(key: str) -> float:
@@ -140,6 +146,30 @@ def test_ci_aggregate_zero_window_matches_full_run() -> None:
         ).stdout
     )
     assert zero_window == baseline
+
+
+def test_ci_aggregate_handles_empty_journals(tmp_path: Path) -> None:
+    main_path = tmp_path / "main.jsonl"
+    shadow_path = tmp_path / "shadow.jsonl"
+    main_path.write_text("", encoding="utf-8")
+    shadow_path.write_text("", encoding="utf-8")
+
+    payload = json.loads(
+        run_python(
+            [
+                "tools/ci_aggregate.py",
+                str(main_path),
+                "--shadow",
+                str(shadow_path),
+            ]
+        ).stdout
+    )
+
+    assert payload["count"] == 0
+    assert payload["total_count"] == 0
+    assert payload["facets"] == []
+    assert payload["avg"] == {"∆": 0.0, "D": 0.0, "Ω": 0.0, "Λ": 0.0}
+    assert payload["shadow_ratio"] == 0.0
 
 
 def test_unicode_ascii_parity() -> None:

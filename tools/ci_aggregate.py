@@ -62,16 +62,30 @@ def main() -> None:
         shadow_entries = []
 
     def average_for(key: str) -> float:
-        values = [entry.get(key, 0) for entry in main_entries]
+        values = []
+        for entry in main_entries:
+            value = entry.get(key)
+            if isinstance(value, (int, float)):
+                values.append(float(value))
         return mean(values) if values else 0.0
 
     averages = {key: average_for(key) for key in ["∆", "D", "Ω", "Λ"]}
     output = {
         "count": len(main_entries),
         "total_count": len(all_main_entries),
-        "facets": sorted({entry.get("facet", "") for entry in main_entries}),
+        "facets": sorted(
+            {
+                entry.get("facet")
+                for entry in main_entries
+                if isinstance(entry.get("facet"), str) and entry.get("facet").strip()
+            }
+        ),
         "avg": averages,
-        "shadow_ratio": round(len(shadow_entries) / max(1, len(main_entries)), 3),
+        "shadow_ratio": (
+            round(len(shadow_entries) / len(main_entries), 3)
+            if main_entries
+            else 0.0
+        ),
     }
     print(json.dumps(output, ensure_ascii=False, indent=2))
 
