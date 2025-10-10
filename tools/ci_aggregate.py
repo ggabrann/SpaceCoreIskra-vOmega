@@ -67,7 +67,7 @@ def main() -> None:
             value = entry.get(key)
             if isinstance(value, (int, float)):
                 values.append(float(value))
-        return mean(values) if values else 0.0
+        return round(mean(values), 3) if values else 0.0
 
     averages = {key: average_for(key) for key in ["∆", "D", "Ω", "Λ"]}
     output = {

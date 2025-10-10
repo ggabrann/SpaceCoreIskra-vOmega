@@ -106,7 +106,7 @@ def test_ci_aggregate_window_slice() -> None:
 
     def average_for(key: str) -> float:
         values = [float(entry.get(key, 0)) for entry in expected_entries]
-        return sum(values) / len(values) if values else 0.0
+        return round(sum(values) / len(values), 3) if values else 0.0
 
     assert payload["avg"]["∆"] == pytest.approx(average_for("∆"))
 
