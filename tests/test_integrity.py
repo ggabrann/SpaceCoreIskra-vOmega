@@ -38,6 +38,11 @@ def run_python(
     return result
 
 
+def read_jsonl(path: Path) -> list[dict]:
+    with path.open("r", encoding="utf-8") as handle:
+        return [json.loads(line) for line in handle if line.strip()]
+
+
 def test_json_schema_validation() -> None:
     run_python(["tools/validate_json_schemas.py"])
 
@@ -66,6 +71,75 @@ def test_ci_aggregate_output() -> None:
     )
     payload = json.loads(result.stdout)
     assert "count" in payload and payload["count"] >= 0
+
+
+def test_ci_aggregate_window_slice() -> None:
+    main_entries = read_jsonl(MAIN_JOURNAL)
+    if len(main_entries) < 2:
+        pytest.skip("not enough journal entries to validate windowed aggregation")
+
+    shadow_entries = read_jsonl(SHADOW_JOURNAL)
+    window = 2
+    result = run_python(
+        [
+            "tools/ci_aggregate.py",
+            str(MAIN_JOURNAL),
+            "--shadow",
+            str(SHADOW_JOURNAL),
+            "--window",
+            str(window),
+        ]
+    )
+    payload = json.loads(result.stdout)
+
+    expected_entries = main_entries[-window:]
+    assert payload["count"] == len(expected_entries)
+    assert payload["total_count"] == len(main_entries)
+    expected_facets = sorted({entry.get("facet", "") for entry in expected_entries})
+    assert payload["facets"] == expected_facets
+
+    def average_for(key: str) -> float:
+        values = [float(entry.get(key, 0)) for entry in expected_entries]
+        return sum(values) / len(values) if values else 0.0
+
+    assert payload["avg"]["∆"] == pytest.approx(average_for("∆"))
+
+    mirrors = {
+        entry.get("mirror")
+        for entry in expected_entries
+        if isinstance(entry.get("mirror"), str)
+    }
+    expected_shadow = [
+        entry for entry in shadow_entries if entry.get("mirror") in mirrors
+    ]
+    expected_ratio = round(len(expected_shadow) / max(1, len(expected_entries)), 3)
+    assert payload["shadow_ratio"] == expected_ratio
+
+
+def test_ci_aggregate_zero_window_matches_full_run() -> None:
+    baseline = json.loads(
+        run_python(
+            [
+                "tools/ci_aggregate.py",
+                str(MAIN_JOURNAL),
+                "--shadow",
+                str(SHADOW_JOURNAL),
+            ]
+        ).stdout
+    )
+    zero_window = json.loads(
+        run_python(
+            [
+                "tools/ci_aggregate.py",
+                str(MAIN_JOURNAL),
+                "--shadow",
+                str(SHADOW_JOURNAL),
+                "--window",
+                "0",
+            ]
+        ).stdout
+    )
+    assert zero_window == baseline
 
 
 def test_unicode_ascii_parity() -> None:
