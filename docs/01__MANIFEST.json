@@ -1,0 +1,43 @@
+{
+  "name": "iskra_rag_flat",
+  "version": "1.0.0",
+  "description": "Портативный манифест RAG для плоской среды Projects. Используется как \"паспорт\" пакета.",
+  "embedding_model": "gte-base (suggested)",
+  "index": {
+    "type": "hosted_openai_or_manual",
+    "top_k": 8,
+    "rerank_top_k": 4
+  },
+  "doc_patterns": [
+    "chunk__*.md",
+    "glossary__*.md",
+    "*Искра*.md",
+    "Манифест.txt",
+    "Liber Ignis.txt",
+    "Фазы и Состояния*.md",
+    "Искра Память*.md",
+    "Искра Глоссарий*.md",
+    "Искра Принципы*.md",
+    "Искра Онтология*.md",
+    "СамоАнализ.txt",
+    "ARCHIVE_ENTRIES.md",
+    "NODES_GROWTH.md",
+    "SHADOW_CORE_POINTS.md",
+    "Уязвимости Искры*.md",
+    "Онтология Искры и отличие*.docx"
+  ],
+  "meta_keys": [
+    "source",
+    "id",
+    "group",
+    "lens",
+    "claim",
+    "counterclaim",
+    "tags",
+    "iskra_phase",
+    "ritual"
+  ],
+  "prompt_template": "prompt__answer.md",
+  "citation_style": "source + id",
+  "notes": "В Projects используется встроенный поиск по файлам. Этот манифест помогает держать структуру переносимой."
+}
