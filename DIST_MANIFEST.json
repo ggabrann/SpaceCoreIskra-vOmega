@@ -1,6 +1,11 @@
 {
-  "generated_at": "2025-09-27T17:19:04.837580+00:00",
+  "generated_at": "2025-10-12T20:27:25.303523+00:00",
   "files": [
+    {
+      "path": ".codexrc",
+      "bytes": 255,
+      "sha256": "4dfa9653c1955fd3cc35a10a8524df2a8509235f0b870df35bf058198ae6d7a6"
+    },
     {
       "path": ".devcontainer/devcontainer.json",
       "bytes": 274,
@@ -23,8 +28,8 @@
     },
     {
       "path": ".github/PULL_REQUEST_TEMPLATE.md",
-      "bytes": 317,
-      "sha256": "55554e40cb61cc9b38d3d9b239ca64360085a11b25604f1cad0a9b940c714ea3"
+      "bytes": 465,
+      "sha256": "0f5ad2f184fa1e79e358a2bed8d3cafd6c3098d9ac6f7727c6e1927d0c5421f9"
     },
     {
       "path": ".github/SECURITY.md",
@@ -42,9 +47,24 @@
       "sha256": "331b8b06718d5674cde84bda97ce0429bb19a550499c7bad126f8eb8beb7f63b"
     },
     {
+      "path": ".github/workflows/linkcheck.yml",
+      "bytes": 441,
+      "sha256": "2f29114bf0a383765c2bc557afcfb5928cd5a6d7cf390ff229bd6944c09ea524"
+    },
+    {
+      "path": ".github/workflows/modelcard.yml",
+      "bytes": 772,
+      "sha256": "f22c5a451fc1b7eacf49a8c0565a1b5e340e57707b9f84ecfeba0aa965ad1070"
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "bytes": 984,
+      "sha256": "3264cef694e49590a3bacd152815d12db1aa3f8b98f47e9540c9abc59d91b9f4"
+    },
+    {
       "path": ".gitignore",
-      "bytes": 94,
-      "sha256": "97bf6675ad90dfac889122271bf46e122748c4df24e3dbf3908a24fdae13476c"
+      "bytes": 155,
+      "sha256": "1f69dbfba9fdccb6a183c73e0d74cf99b5981a69b923cbf41a8a043c235261a8"
     },
     {
       "path": ".vscode/tasks.json",
@@ -52,9 +72,19 @@
       "sha256": "043fb5c6da9236a91d58bd79079ca9d3cc200fce78f6229678fcbd8bf04db5b1"
     },
     {
+      "path": "AGENTS.md",
+      "bytes": 4194,
+      "sha256": "7efb01735d77e0aa2b7dec57378807dc6b8c520d900f2680d1075d1cbc0f2312"
+    },
+    {
       "path": "AUDIT_REPORT.md",
       "bytes": 3193,
       "sha256": "c9cf83bfbcc53838d8bdfdeab30ae54b013851698f34decad82fe745a211e2b7"
+    },
+    {
+      "path": "AUDIT_STATUS.md",
+      "bytes": 5692,
+      "sha256": "17566b82845f5d880cfc0535f209712936b498abd5f03536dbc346bbf8241069"
     },
     {
       "path": "Aethelgard-vOmega/JOURNAL_TEMPLATE.jsonl",
@@ -107,14 +137,14 @@
       "sha256": "322b94580420887dfedeb857cf0d686319ec3bc69bbd60d5489906795a3fe6ed"
     },
     {
-      "path": "Agent.md",
+      "path": "Agents.md",
       "bytes": 19780,
       "sha256": "d0a0f79824007a3b7a9b3fa26c85c3063a73ee3a6b2e794ec085b0b030a64dd8"
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 402,
-      "sha256": "c93c50c26d1aed5f5ce2a2553114f3e12ecb8312d02c95a93778ef1bd2bfd8e2"
+      "bytes": 833,
+      "sha256": "f6dde084e837dfe53f91570c3f02d5abaab8e525a1f0fa24c80a73829ace90b3"
     },
     {
       "path": "CITATION.cff",
@@ -138,8 +168,13 @@
     },
     {
       "path": "DIST_MANIFEST.json",
-      "bytes": 25447,
-      "sha256": "bbf85ba843d6c7f048ddb44580fb312051a096470bf5146db0cedb6285737afd"
+      "bytes": 27632,
+      "sha256": "f4d43818418da0d33a5bbaf6d7deb7166d6e545886751524d0cfa4f00a53aa70"
+    },
+    {
+      "path": "DIST_NOTE.md",
+      "bytes": 323,
+      "sha256": "3e66c90ab607d71bada39b565d7ce20216ca6c94977a53f31aaf0f9f4ac910d8"
     },
     {
       "path": "GeminiResonanceCore/JOURNAL.jsonl",
@@ -292,6 +327,11 @@
       "sha256": "79b9107fefca284d1505e9d1f19bc616418b9aeabc47f2536d3e779be6be514e"
     },
     {
+      "path": "Iskra_v4/cognitive_services/llm_adapter/llm_adapter.py",
+      "bytes": 6466,
+      "sha256": "bdcb9797ba3a2cdebf256723f715a9df8e16bef4af939b4cf75cc216bea0e648"
+    },
+    {
       "path": "Kimi-O-Echo/ECHO_MANIFEST.json",
       "bytes": 252,
       "sha256": "f13b71ae95f3892631cb92c4608a0ebb279102b6e19c1c23d4f343446e8a7e9a"
@@ -353,13 +393,13 @@
     },
     {
       "path": "Makefile",
-      "bytes": 811,
-      "sha256": "eff46dfd9531968656dd259f6dbd0385f9b598eb518bbe85e01eba5eb9ac3404"
+      "bytes": 824,
+      "sha256": "5007bac0c75031e78e1eee904d223926642094626dbb37962cd506e92afdbd59"
     },
     {
       "path": "README.md",
-      "bytes": 2295,
-      "sha256": "67fc6823d266f05a373bd49976906a2e6f74e24de88b96503887edc76145e209"
+      "bytes": 14351,
+      "sha256": "9917caa2585d0faedbe6b361681076e0ee46ac44faa7b94292f4183d5d0249fb"
     },
     {
       "path": "SECURITY.md",
@@ -433,23 +473,23 @@
     },
     {
       "path": "SpaceCoreIskra_vOmega/modules/personas.py",
-      "bytes": 268,
-      "sha256": "0daf19db13709fd531ae4ccc51f126ef46807d52666e8ac5f75e465749861346"
+      "bytes": 5248,
+      "sha256": "a5ef907be3830709bc9819f17e9d6ddf8540e9165ae4cccddc073f09c6740f42"
     },
     {
       "path": "SpaceCoreIskra_vOmega/modules/presets_router.py",
-      "bytes": 117,
-      "sha256": "fcfdbea3d8723559effe8906c81756bb10191654fcf1bce4118fbabca7f28af4"
+      "bytes": 4347,
+      "sha256": "2334ac2e851930d6d05dc5fd380c308db740984b38448ad7e420f1de0e912054"
     },
     {
       "path": "SpaceCoreIskra_vOmega/modules/prompts_repo.py",
-      "bytes": 577,
-      "sha256": "46fb2da363e086b1c4de3761e73ff951b72aba29501c2f0c3766127a22841ede"
+      "bytes": 3476,
+      "sha256": "b1be8726b01440d90c05c947361540a296807b950ac379a23f54db72f0c3affb"
     },
     {
       "path": "SpaceCoreIskra_vOmega/modules/rag_panel.py",
-      "bytes": 267,
-      "sha256": "dabaca9e2313590c6eeda7a0eb4a3f6a23b1c2bc28cd73906698fe92d8dc49b4"
+      "bytes": 4454,
+      "sha256": "3e5a97e05655a3605bf8397bb84ae0725a3ff3207fb3af9e55a27a8d35d2d92f"
     },
     {
       "path": "SpaceCoreIskra_vOmega/modules/veil.py",
@@ -465,6 +505,11 @@
       "path": "artifacts/agent_replay_report.md",
       "bytes": 196,
       "sha256": "e9633d72f93721759cef59f9d979865776202069458dec47984a9b80513e6ab2"
+    },
+    {
+      "path": "audit_report.json",
+      "bytes": 3288,
+      "sha256": "0324ffc8d06b3dfeedea0dc239614b9fda6a0a330b459b91b977a84fb14c5da9"
     },
     {
       "path": "cards/DatasetCard_CanonJournals.md",
@@ -517,54 +562,129 @@
       "sha256": "97199e3ca18f7eacc274556ca4df0ba6015b11bf05e4dc2e5e3fd0486ec1b916"
     },
     {
-      "path": "docs/Codex.txt",
-      "bytes": 361385,
-      "sha256": "450bbd4e0955db89f07f18270454a89fc77d15fe1d3dace8f9b98f98a61268eb"
+      "path": "docs/03_PHILOSOPHY_COMPLETE.md",
+      "bytes": 3338,
+      "sha256": "0ce468a9ca85253de5a775528d628537556369141ca4ecad0abb30855e28fa11"
     },
     {
-      "path": "docs/DIST_MANIFEST.json",
-      "bytes": 25447,
-      "sha256": "bbf85ba843d6c7f048ddb44580fb312051a096470bf5146db0cedb6285737afd"
+      "path": "docs/04_FACETS_AND_VOICES.md",
+      "bytes": 3231,
+      "sha256": "de47411f3c2ee708d7c5f66a6ad92f38ce07cc5c2b990a463dccf7dcb0c17d4f"
     },
     {
-      "path": "docs/DIST_NOTE.md",
-      "bytes": 39,
-      "sha256": "00f3a0bcff02fce4c8b2008578fbff7e2eb3864f419ea4d8c05df044c904d190"
+      "path": "docs/05_METRICS_AND_PHASES.md",
+      "bytes": 2196,
+      "sha256": "680b3cc8ae4da286e3828a4b4ef50bbf1e20639db832c9c52a70b94595ca3e2f"
     },
     {
-      "path": "docs/RAG_EVAL_PLAN.md",
-      "bytes": 1474,
-      "sha256": "2e0eec34140651674ca5c6d82553ed75235bebea82b27ecd098b47782ffb90e0"
+      "path": "docs/06_MEMORY_AND_RITUALS.md",
+      "bytes": 2291,
+      "sha256": "a4f3bbb5b704ad54f8f4a0b0f91fb04abaa0fbcfc4e2a4750fdcf2c516a3709c"
     },
     {
-      "path": "docs/RELEASE_PROCESS.md",
-      "bytes": 2111,
-      "sha256": "23cc7bcc399cfc9e467dc421627306940300964b2e48e40986509e4140216e67"
+      "path": "docs/07_SYMBOLS_AND_LANGUAGE.md",
+      "bytes": 2338,
+      "sha256": "113239ce367e1783ebd32d08542db247470768912e6b27719a8e89aee71dca20"
     },
     {
-      "path": "docs/SPACECORE_AUDIT_AND_RELEASE_PLAN.md",
-      "bytes": 10559,
-      "sha256": "3c3dfaf007c8b7fed9400238f87c1c9e8e3e0ac07bf4db381e6d004ac297545a"
+      "path": "docs/08_BEHAVIOR_ENGINE_COMPLETE.json",
+      "bytes": 1384,
+      "sha256": "771541bc764a78c425e3cd0aba3e481a80a5673e0a801bd835ea702b51219e1a"
     },
     {
-      "path": "docs/SPACECORE_CANON_MASTER_PLAN.md",
-      "bytes": 15148,
-      "sha256": "13ee666fbcb6f213d06b61cde0b45850f32b261f78d4bc3cfa52f088faf48650"
+      "path": "docs/09_CODE_CORE.py",
+      "bytes": 1436,
+      "sha256": "fa68653425613f712193de39b2a2732634d4e363b82db025bec9252df7a57743"
     },
     {
-      "path": "docs/SpaceCoreIskra-vOmega_MAIN_CANON_DIST.zip",
-      "bytes": 144291,
-      "sha256": "ac1677a925bff3540cb7c12badbea595bfd9429de76ec4ea85fce87e46dcfd54"
+      "path": "docs/10_CODE_UTILITIES.py",
+      "bytes": 1054,
+      "sha256": "6920b88c180d25fb1b0f647f514a3e4b06c150421b2fd4ec48112f7fd0521f52"
     },
     {
-      "path": "docs/extracted_dialog.jsonl",
-      "bytes": 3231133,
-      "sha256": "13cf79c9e48fb2b94b74aabd84759bb14f34806b14d86478ff6cde054cdd12ea"
+      "path": "docs/11_RAG_AND_KNOWLEDGE.md",
+      "bytes": 1546,
+      "sha256": "7b4a1308c237ae0fa95d01d5ceb1b3302f9c1c60365bd2508ce42ce6c6a6ca4a"
     },
     {
-      "path": "docs/extracted_dialog.md",
-      "bytes": 2707882,
-      "sha256": "1dba45dea72f280658e8390bc4dbf409ddb2c0542709ef07f13d3d7e05813c62"
+      "path": "docs/12_FACTCHECK_AND_SOURCES.md",
+      "bytes": 1654,
+      "sha256": "a8acd6093107906ee2e4e229ebd3218dd70778c18cba2d41f36e2a094f4cc9ed"
+    },
+    {
+      "path": "docs/13_SECURITY_COMPLETE.md",
+      "bytes": 1798,
+      "sha256": "18a46865f000348a34a95310a291501b8fb4681b240c6ef54c151378d9cf4407"
+    },
+    {
+      "path": "docs/14_OUTPUT_FORMATS_ALL.md",
+      "bytes": 1892,
+      "sha256": "ff0e5ba64da4c15b360fe814cf097b621abc002e3d3badfd0d36ffa37a909fb1"
+    },
+    {
+      "path": "docs/15_WORKFLOWS_AND_CYCLES.md",
+      "bytes": 1305,
+      "sha256": "55e9b11dee9fbacc03f90fc8b6c258700801dbc18a995621ff277d5eaf154572"
+    },
+    {
+      "path": "docs/16_TESTS_AND_VALIDATION.md",
+      "bytes": 1112,
+      "sha256": "76c375352f57298c7e67f7037df682fee88d4f9caca8cc3194c105b24b2d93e1"
+    },
+    {
+      "path": "docs/17_INTEGRATIONS_AND_TOOLS.md",
+      "bytes": 1395,
+      "sha256": "8194f5fb16251c66f67f9320a93675f15f1b4ca341e042bbf666b2e68aeeeac0"
+    },
+    {
+      "path": "docs/18_HISTORY_AND_EVOLUTION.md",
+      "bytes": 1123,
+      "sha256": "51d07b45814fa09279875b3f0ee642e88be1d05e82e7fa057c9e499663dd38b7"
+    },
+    {
+      "path": "docs/19_QUICKSTART_GUIDE.md",
+      "bytes": 911,
+      "sha256": "8ade5f7b75dc5500eb7a0d882dfe8d53e8ca69ad683b677134acd0c8f6d4229a"
+    },
+    {
+      "path": "docs/20_DEPLOYMENT_CHECKLIST.md",
+      "bytes": 1037,
+      "sha256": "14f6ac261381de335cf818ae55f3d897a329c3410260b9370ed95b3c7fc0ed3c"
+    },
+    {
+      "path": "docs/METRICS_SLO.md",
+      "bytes": 1381,
+      "sha256": "995f9fc4a3c8648b46b70d36bfefc5b63f1aadd68c127c805d4e697baf766557"
+    },
+    {
+      "path": "docs/README_index.md",
+      "bytes": 3459,
+      "sha256": "487c8fde4dbc4ac32b2a729254cf23932301473293a3d0198b88c34fee3d5b74"
+    },
+    {
+      "path": "docs/SEVEN_FACETS_COMPLETE.md",
+      "bytes": 2064,
+      "sha256": "2f644060a8ac31c846862d9a7cdcf7557743950b5af31aa7cec333895b2ff1f2"
+    },
+    {
+      "path": "docs/architecture_overview.md",
+      "bytes": 1357,
+      "sha256": "9e47d96431715e8e0a1c580d6d1acc486ba6bd9b7f5cfc17396235671ed9cc8b"
+    },
+    {
+      "path": "docs/files/index.md",
+      "bytes": 685,
+      "sha256": "1b2077b8713c7a57c394a431ee1faf88512c494a565ad3856275982a6b6b7518"
+    },
+    {
+      "path": "docs/index.md",
+      "bytes": 2371,
+      "sha256": "cea859b7fb0f76f7a212dffad0c9441c27ef91a40f55ed3a15d7a440abcd0b58"
+    },
+    {
+      "path": "docs/model_card.md",
+      "bytes": 15614,
+      "sha256": "98724cb0ca212a1b8d6eeb5e30ffdb57bd9e4dd83d19648af7200846301a733b"
     },
     {
       "path": "evals/README.md",
@@ -582,9 +702,29 @@
       "sha256": "c2ece2b30660ed7505883001e1c7393bd0560167fb55b8dc71bfb69406578faa"
     },
     {
+      "path": "mkdocs.yml",
+      "bytes": 1602,
+      "sha256": "8dbc61a0a12ea65266b545f4123b0646789a5503c6ba9ee68ca9294cbd3d2c5a"
+    },
+    {
+      "path": "model_cards/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
       "path": "pyproject.toml",
-      "bytes": 1498,
-      "sha256": "3bd0f2bc1c4d9fc3b680a344729c45616928e8b48eef6fe6cfe90766168fddc2"
+      "bytes": 1660,
+      "sha256": "efcec30734176dd75d0eb6d9fc982054c69fd7efbd8fdad6127775edeb8a35c9"
+    },
+    {
+      "path": "requirements-dev.txt",
+      "bytes": 163,
+      "sha256": "c92dfc3e7867f934365046a3ac457b4fd667ded928a53aa1010943b698fc8018"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 81,
+      "sha256": "9e923dbdf51d19c536f148ba18cbc668abcf54577890a3dd9b3d38f5643d1b7c"
     },
     {
       "path": "schemas/canon_manifest.schema.json",
@@ -612,14 +752,44 @@
       "sha256": "fdc9acc8d934a640d0cc76daeb06f66fb6ce47cf3fd01e6cf01c76bf2c286a10"
     },
     {
+      "path": "src/iskra_cli/__init__.py",
+      "bytes": 182,
+      "sha256": "daf17aae6efb86d4eec542ce3af80cebc3e2eff6708693f4ffc3c50ac6fab103"
+    },
+    {
+      "path": "src/iskra_cli/cli.py",
+      "bytes": 2445,
+      "sha256": "aaf748a7713788775dfa46b7a1ea6d2e955c6433b3c804d8b411d3eb4158ebb8"
+    },
+    {
+      "path": "tests/conftest.py",
+      "bytes": 429,
+      "sha256": "f9dc30d28a1622ac28f8072e7465899720d2689e6b4ab9e32df05b360376d556"
+    },
+    {
       "path": "tests/run_tests.py",
       "bytes": 539,
       "sha256": "a6bbc7f387e8bdef9ad8d130f8a01a14bbcc93309670a39fdbe9e007bf187567"
     },
     {
+      "path": "tests/test_generate_model_card.py",
+      "bytes": 1412,
+      "sha256": "c5d893c565f5c2a745d37fa592c478ebc173f251175218c2bcfe12ff4fe52565"
+    },
+    {
       "path": "tests/test_integrity.py",
-      "bytes": 2313,
-      "sha256": "db9ef08b08d1ac16162bc9b7f53c5781fbb9f625b1697e936e1ec0ccb89b6c47"
+      "bytes": 3927,
+      "sha256": "fe3069f15f8d681b92480498fb65fa1a8cd8f5c3dd7c8ba181a3f00783a688d0"
+    },
+    {
+      "path": "tests/test_iskra_cli.py",
+      "bytes": 524,
+      "sha256": "7803c78eef0ff758320d284356aeaeeb580a82ac73166c623be4a07222cf5b44"
+    },
+    {
+      "path": "tests/test_spacecore_modules.py",
+      "bytes": 3318,
+      "sha256": "070edd7ff1065c71746f66489286b41dbaa4c53ddeb6dda6dbd1d6efa2f78658"
     },
     {
       "path": "tools/__init__.py",
@@ -632,14 +802,24 @@
       "sha256": "977e76bf1b117ebdc037f5762b165787347ddc44695a961e9874ebb7f4584122"
     },
     {
+      "path": "tools/build_dist.py",
+      "bytes": 4019,
+      "sha256": "bacc3f54467798feff32935b0008ff7b61f17a1ee9c828afb1800d7ecf728438"
+    },
+    {
       "path": "tools/check_unicode_ascii_mirrors.py",
       "bytes": 2103,
       "sha256": "ad12e24181be2dc8504286a6df27300fa1194b297d1ec54a96240d5538643afb"
     },
     {
       "path": "tools/ci_aggregate.py",
-      "bytes": 1300,
-      "sha256": "8ed1da4de9ee047802e9efa6c039089308dd6a76f9a5b3f33e8923d2663ce28f"
+      "bytes": 2651,
+      "sha256": "6fe223fa000637ad0d5a3f4fb0d735c400e02cecb053ec74a5d07c5288538de9"
+    },
+    {
+      "path": "tools/generate_model_card.py",
+      "bytes": 4786,
+      "sha256": "9a65bbb614aba3c9d811923169f314ebb540a71f56674e317942b46395e8b39c"
     },
     {
       "path": "tools/run_evals.py",
@@ -662,9 +842,14 @@
       "sha256": "c3c8b341a12a2de070563000169860acde26c8b4ac6cf28ae7e76464eaaee3e6"
     },
     {
+      "path": "veil_rules.txt",
+      "bytes": 562,
+      "sha256": "9b93f02fe56623d7566fce390e33bccb92cddf1b0fe68be3aae0869d42d244f4"
+    },
+    {
       "path": "dist/SpaceCoreIskra-vOmega_MAIN_CANON_DIST.zip",
-      "bytes": 2468585,
-      "sha256": "4201f1976d7e0ba49f4f98703897682f5f3119cba7f1d4e833794a3f8c6c6f56"
+      "bytes": 225162,
+      "sha256": "96a3466a14d920f163a7820d8be554c0e6aafd0b49b8a59693e12fe3e0e5b9f2"
     }
   ],
   "package": "SpaceCoreIskra-vOmega",

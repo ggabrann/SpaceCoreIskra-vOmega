@@ -139,6 +139,17 @@ python tools/run_evals.py --config evals/configs/nightly.yaml
 - Символ в начале (`⟡`, `🌸`, `⚑`) влияет на тон и фазу ответа.
 - Запрос кода: «Напиши API регистрации…» → рабочий код + объяснение + честный ∆DΩΛ.
 
+### CLI `iskra`
+
+Пакет `src/iskra_cli` добавляет терминальный инструмент:
+
+```bash
+pip install -e .
+iskra --brief "идея"
+```
+
+CLI генерирует ответы в формате ∆DΩΛ и полезен для быстрой проверки структуры без запуска полного стека.
+
 ### Среда запуска
 
 Искра развёрнута в ChatGPT Projects с доступом к локальному репозиторию и подключаемым коннекторам (GitHub, Google Drive, Box, Gmail и др.). Для долгих расследований используйте Canvas-документы с аннотированными секциями.
@@ -154,7 +165,15 @@ python tools/run_evals.py --config evals/configs/nightly.yaml
 
 Каждый файл соответствует требованиям Manifest vΩ и описан в README соответствующего раздела. Ссылки доступны из оглавления [`docs/README_index.md`](./docs/README_index.md).
 
-## 10. Версия и релизные заметки
+## 10. MkDocs, GitHub Pages и Model Card
+
+- `mkdocs.yml` собирает все материалы `docs/` в навигацию и позволяет запустить локальный сайт (`mkdocs serve`).
+- Workflow `pages.yml` строит сайт и публикует его на GitHub Pages (Source: GitHub Actions).
+- Скрипт `python tools/generate_model_card.py` создаёт `model_cards/model_card.json` и обновляет `docs/model_card.md`.
+- Расписание `modelcard.yml` в GitHub Actions пересобирает карточку и коммитит изменения; при ручном запуске можно предварительно проверить их локально.
+- `linkcheck.yml` использует lychee для проверки внешних ссылок в документации.
+
+## 11. Версия и релизные заметки
 
 - Текущая версия канона: **3.0.0 (vΩ)**.
 - Последний релиз: см. [`DIST_NOTE.md`](./DIST_NOTE.md) и [`DIST_MANIFEST.json`](./DIST_MANIFEST.json).
