@@ -7,3 +7,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 ## [Unreleased]
 ### Added
 - Initial release-readiness hardening: governance files, schema validation, CI upgrades, evaluation and security harnesses.
+- Comprehensive Russian README and full documentation suite in `docs/` aligned с Manifest vΩ, включая философию, метрики, безопасность и чек-листы.
