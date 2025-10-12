@@ -1,0 +1,96 @@
+{
+  "bundles": [
+    {
+      "name": "SpaceCoreIskra_vΩ",
+      "missing": [
+        "FACETS.md",
+        "GRAPH.json",
+        "JOURNAL.jsonl",
+        "MANIFEST_vΩ.json",
+        "MECHANICS.md",
+        "PROMPTS_vΩ.md",
+        "PULSE_TRACKER.md",
+        "README_vΩ.md",
+        "RITUALS.md",
+        "SHADOW_JOURNAL.jsonl",
+        "modules/ci_aggregate.py",
+        "modules/journal_generator.py",
+        "modules/prompts_repo.py",
+        "validate_journal.py"
+      ],
+      "extra": [],
+      "manifest": "missing",
+      "journal_validation": {
+        "ok": false,
+        "output": "Traceback (most recent call last):\n  File \"/workspace/SpaceCoreIskra-vOmega/tools/validate_journal_enhanced.py\", line 108, in <module>\n    main()\n  File \"/workspace/SpaceCoreIskra-vOmega/tools/validate_journal_enhanced.py\", line 104, in main\n    sys.exit(validate(args.main, args.shadow, args.window))\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/SpaceCoreIskra-vOmega/tools/validate_journal_enhanced.py\", line 34, in validate\n    list(_iter_jsonl(main_path))[-window:] if window else list(_iter_jsonl(main_path))\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/SpaceCoreIskra-vOmega/tools/validate_journal_enhanced.py\", line 15, in _iter_jsonl\n    with open(path, \"r\", encoding=\"utf-8\") as handle:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/workspace/SpaceCoreIskra-vOmega/SpaceCoreIskra_vΩ/JOURNAL.jsonl'"
+      }
+    },
+    {
+      "name": "GrokCoreIskra_vΓ",
+      "missing": [],
+      "extra": [],
+      "manifest": {
+        "name": "GrokCoreIskra vΓ",
+        "essence": "Аналитическая ветка, настраивающая управление промптами и этикой",
+        "dimensions": [
+          "∆",
+          "D",
+          "Ω",
+          "Λ"
+        ],
+        "files": [
+          "README_vΓ.md",
+          "MECHANICS.md",
+          "FACETS.md",
+          "RITUALS.md",
+          "PROMPTS_vΓ.md",
+          "JOURNAL.jsonl",
+          "SHADOW_JOURNAL.jsonl",
+          "GRAPH.json",
+          "PULSE_TRACKER.md",
+          "modules/prompt_manager.py",
+          "modules/rag_connector.py",
+          "modules/persona_module.py",
+          "modules/ethics_layer.py",
+          "modules/self_journal.py"
+        ],
+        "ci_rules": [
+          "∆ in [-3,3]",
+          "D in [0,9]",
+          "Ω in [-3,3]",
+          "Λ >= 0",
+          "mirror required",
+          "shadow coverage >= 0.2"
+        ]
+      },
+      "journal_validation": {
+        "ok": true,
+        "output": "[OK] strict validation passed\n{\"count\": 1, \"avg\": {\"∆\": 1.0, \"D\": 5.0, \"Ω\": 1.0, \"Λ\": 1.0}, \"shadow_ratio\": 1.0}"
+      }
+    },
+    {
+      "name": "GeminiResonanceCore",
+      "missing": [],
+      "extra": [],
+      "journal_validation": {
+        "ok": false,
+        "output": "[FAIL] strict validation failed:\n - shadow_ratio 0.00 < 0.20"
+      }
+    },
+    {
+      "name": "Aethelgard-vΩ",
+      "missing": [],
+      "extra": []
+    },
+    {
+      "name": "Kimi-Ω-Echo",
+      "missing": [],
+      "extra": []
+    },
+    {
+      "name": "IskraNexus-v1",
+      "missing": [],
+      "extra": []
+    }
+  ]
+}
