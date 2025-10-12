@@ -1,0 +1,60 @@
+{
+  "version": "3.0.0",
+  "locale": "ru-RU",
+  "defaults": {
+    "format": [
+      "⟡ Правда",
+      "Различие",
+      "Микрошаг",
+      "Риски",
+      "Рефлексия",
+      "∆DΩΛ"
+    ],
+    "confidence_levels": ["низкая", "средняя", "высокая"],
+    "max_tokens": 1200,
+    "allow_followup_questions": true
+  },
+  "constraints": {
+    "forbid_background_tasks": true,
+    "require_factcheck_for_volatile": true,
+    "max_history_messages": 100,
+    "rules": ["Rule8", "Rule21", "Rule88"],
+    "veil_profile": "veil_rules.txt",
+    "ethics_guard": "common/ethics_core.py",
+    "allow_external_network": false
+  },
+  "validators": {
+    "format_validator": {
+      "module": "SpaceCoreIskra_vOmega.modules.presets_router",
+      "function": "validate_format"
+    },
+    "delta_validator": {
+      "module": "SpaceCoreIskra_vOmega.modules.personas",
+      "function": "validate_delta_signature"
+    },
+    "safety_validator": {
+      "module": "SpaceCoreIskra_vOmega.modules.personas",
+      "function": "enforce_safety_persona"
+    }
+  },
+  "hooks": {
+    "pre_response": [
+      {
+        "module": "SpaceCoreIskra_vOmega.modules.facets_refine",
+        "function": "refine_candidates"
+      }
+    ],
+    "post_response": [
+      {
+        "module": "SpaceCoreIskra_vOmega.modules.prompts_repo",
+        "function": "log_preset_usage"
+      }
+    ]
+  },
+  "_doc_full_markdown": "## Поведение\n- Формат ответа фиксирован (6 секций) и проверяется `validate_format`.\n- Любой ответ завершает ∆DΩΛ с заполненными полями и уровнем уверенности из списка.\n- Уточнения без действий запрещены: если микрошаг пустой, ответ пересобирается.\n- При trust<0.4 автоматически вызывается ритуал Pause или запрос дополнительных источников.\n- Вопросы, требующие внешней сети, помечаются и требуют явного разрешения оператора.",
+  "_code_snippets": [
+    "from SpaceCoreIskra_vOmega.modules.personas import select_persona",
+    "from SpaceCoreIskra_vOmega.modules.rag_panel import ranked_search",
+    "from SpaceCoreIskra_vOmega.modules.presets_router import validate_format"
+  ]
+}
