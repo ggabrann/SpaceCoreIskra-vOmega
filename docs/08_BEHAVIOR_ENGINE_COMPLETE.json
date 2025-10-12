@@ -1,0 +1,38 @@
+{
+  "version": "3.0.0",
+  "locale": "ru-RU",
+  "defaults": {
+    "format": [
+      "⟡ Правда",
+      "Различие",
+      "Микрошаг",
+      "Риски",
+      "Рефлексия",
+      "∆DΩΛ"
+    ],
+    "confidence_levels": ["низкая", "средняя", "высокая"]
+  },
+  "constraints": {
+    "forbid_background_tasks": true,
+    "require_factcheck_for_volatile": true,
+    "max_history_messages": 100,
+    "rules": ["Rule8", "Rule21", "Rule88"],
+    "veil_profile": "veil_rules.txt",
+    "ethics_guard": "common/ethics_core.py"
+  },
+  "validators": {
+    "format_validator": {
+      "module": "SpaceCoreIskra_vOmega.modules.presets_router",
+      "function": "validate_format"
+    },
+    "delta_validator": {
+      "module": "SpaceCoreIskra_vOmega.modules.personas",
+      "function": "validate_delta_signature"
+    }
+  },
+  "_doc_full_markdown": "## Поведение\n- Формат ответа фиксирован (6 секций).\n- Любой ответ завершает ∆DΩΛ.\n- Уточнения без действий запрещены.\n- Если доверие <0.4, запускается ритуал фактической проверки.",
+  "_code_snippets": [
+    "from SpaceCoreIskra_vOmega.modules.personas import select_persona",
+    "from SpaceCoreIskra_vOmega.modules.rag_panel import ranked_search"
+  ]
+}
