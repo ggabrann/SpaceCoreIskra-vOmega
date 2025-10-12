@@ -12,6 +12,9 @@ dependencies = [
   "pyyaml>=6.0.1"
 ]
 
+[project.scripts]
+iskra = "iskra_cli.cli:main"
+
 [project.optional-dependencies]
 dev = [
   "pytest>=8.2",
@@ -19,7 +22,10 @@ dev = [
   "ruff>=0.4",
   "black>=24.4",
   "mypy>=1.10",
-  "types-PyYAML>=6.0.12"
+  "types-PyYAML>=6.0.12",
+  "mkdocs>=1.6",
+  "mkdocs-material>=9.5",
+  "mkdocs-mermaid2-plugin>=1.1"
 ]
 
 [tool.pytest.ini_options]
@@ -81,4 +87,5 @@ exclude = "tools/audit_repo.py"
 files = "tools"
 
 [tool.setuptools]
-packages = []
+packages = ["iskra_cli"]
+package-dir = {"" = "src"}

@@ -1,0 +1,19 @@
+name: docs-linkcheck
+
+on:
+  schedule:
+    - cron: "37 3 * * 1"
+  workflow_dispatch:
+
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Link check
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --exclude-mail --no-progress --max-redirects 5 --retry-wait-time 2 docs/**/*.md README.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

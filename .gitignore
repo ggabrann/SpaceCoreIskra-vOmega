@@ -7,3 +7,8 @@ __pycache__/
 *.swo
 artifacts/evals/
 spacecoreiskra.egg-info/
+site/
+.mkdocs-cache/
+model_cards/*.json
+dist/
+!dist/.gitkeep

@@ -1,0 +1,45 @@
+site_name: SpaceCore Iskra Canon
+site_description: Документация, ритуалы и проверки
+repo_url: https://github.com/ggabrann/SpaceCoreIskra-vOmega
+theme:
+  name: material
+  language: ru
+  features:
+    - navigation.instant
+    - content.code.copy
+nav:
+  - Главная: index.md
+  - Архитектура:
+      - Обзор: architecture_overview.md
+      - Полное оглавление: README_index.md
+  - Канон:
+      - Философия: 03_PHILOSOPHY_COMPLETE.md
+      - Грани: 04_FACETS_AND_VOICES.md
+      - Метрики и фазы: 05_METRICS_AND_PHASES.md
+      - Память и ритуалы: 06_MEMORY_AND_RITUALS.md
+      - Символы и язык: 07_SYMBOLS_AND_LANGUAGE.md
+  - Техника:
+      - Поведенческий движок: 08_BEHAVIOR_ENGINE_COMPLETE.json
+      - Код ядра: 09_CODE_CORE.py
+      - Утилиты: 10_CODE_UTILITIES.py
+      - RAG: 11_RAG_AND_KNOWLEDGE.md
+      - Фактчекинг: 12_FACTCHECK_AND_SOURCES.md
+      - Безопасность: 13_SECURITY_COMPLETE.md
+      - Форматы ответа: 14_OUTPUT_FORMATS_ALL.md
+      - Рабочие циклы: 15_WORKFLOWS_AND_CYCLES.md
+      - Тестирование: 16_TESTS_AND_VALIDATION.md
+      - Интеграции: 17_INTEGRATIONS_AND_TOOLS.md
+  - Model Card: model_card.md
+  - Канон-файлы:
+      - Обзор: files/index.md
+plugins:
+  - search
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+extra_css: []
