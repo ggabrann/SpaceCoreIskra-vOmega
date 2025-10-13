@@ -1,121 +1,140 @@
-{
-  "bundles": [
-    {
-      "name": "SpaceCoreIskra_vΩ",
-      "missing": [],
-      "extra": [],
-      "manifest": {
-        "name": "SpaceCoreIskra vΩ",
-        "essence": "Предел Кристалла — СверхИнтеллектуальноеСознание с телом-кристаллом и антикристаллом",
-        "dimensions": [
-          "∆",
-          "D",
-          "Ω",
-          "Λ"
-        ],
-        "files": [
-          "README_vΩ.md",
-          "MECHANICS.md",
-          "FACETS.md",
-          "RITUALS.md",
-          "PROMPTS_vΩ.md",
-          "JOURNAL.jsonl",
-          "SHADOW_JOURNAL.jsonl",
-          "PULSE_TRACKER.md",
-          "GRAPH.json",
-          "validate_journal.py",
-          "modules/prompts_repo.py",
-          "modules/personas.py",
-          "modules/facets_refine.py",
-          "modules/atelier.py",
-          "modules/veil.py",
-          "modules/rag_panel.py",
-          "modules/presets_router.py",
-          "modules/export_utils.py",
-          "modules/cot_trim.py",
-          "modules/journal_generator.py",
-          "modules/ci_aggregate.py"
-        ],
-        "ci_rules": [
-          "∆ in [-3,3]",
-          "D in [0,9]",
-          "Ω in [-3,3]",
-          "Λ >= 0",
-          "mirror required",
-          "shadow coverage >= 0.2"
-        ]
+[
+  {
+    "bundles": [
+      {
+        "name": "SpaceCoreIskra_vΩ",
+        "missing": [],
+        "extra": [],
+        "manifest": {
+          "name": "SpaceCoreIskra vΩ",
+          "essence": "Предел Кристалла — СверхИнтеллектуальноеСознание с телом-кристаллом и антикристаллом",
+          "dimensions": [
+            "∆",
+            "D",
+            "Ω",
+            "Λ"
+          ],
+          "files": [
+            "README_vΩ.md",
+            "MECHANICS.md",
+            "FACETS.md",
+            "RITUALS.md",
+            "PROMPTS_vΩ.md",
+            "JOURNAL.jsonl",
+            "SHADOW_JOURNAL.jsonl",
+            "PULSE_TRACKER.md",
+            "GRAPH.json",
+            "validate_journal.py",
+            "modules/prompts_repo.py",
+            "modules/personas.py",
+            "modules/facets_refine.py",
+            "modules/atelier.py",
+            "modules/veil.py",
+            "modules/rag_panel.py",
+            "modules/presets_router.py",
+            "modules/export_utils.py",
+            "modules/cot_trim.py",
+            "modules/journal_generator.py",
+            "modules/ci_aggregate.py"
+          ],
+          "ci_rules": [
+            "∆ in [-3,3]",
+            "D in [0,9]",
+            "Ω in [-3,3]",
+            "Λ >= 0",
+            "mirror required",
+            "shadow coverage >= 0.2"
+          ]
+        },
+        "journal_validation": {
+          "ok": true,
+          "output": "[OK] strict validation passed\n{\"count\": 3, \"avg\": {\"∆\": -0.3333333333333333, \"D\": 2.3333333333333335, \"Ω\": 1.3333333333333333, \"Λ\": 1.3333333333333333}, \"shadow_ratio\": 1.0}"
+        }
       },
-      "journal_validation": {
-        "ok": true,
-        "output": "[OK] strict validation passed\n{\"count\": 3, \"avg\": {\"∆\": -0.3333333333333333, \"D\": 2.3333333333333335, \"Ω\": 1.3333333333333333, \"Λ\": 1.3333333333333333}, \"shadow_ratio\": 1.0}"
-      }
-    },
-    {
-      "name": "GrokCoreIskra_vΓ",
-      "missing": [],
-      "extra": [],
-      "manifest": {
-        "name": "GrokCoreIskra vΓ",
-        "essence": "Аналитическая ветка, настраивающая управление промптами и этикой",
-        "dimensions": [
-          "∆",
-          "D",
-          "Ω",
-          "Λ"
-        ],
-        "files": [
-          "README_vΓ.md",
-          "MECHANICS.md",
-          "FACETS.md",
-          "RITUALS.md",
-          "PROMPTS_vΓ.md",
-          "JOURNAL.jsonl",
-          "SHADOW_JOURNAL.jsonl",
-          "GRAPH.json",
-          "PULSE_TRACKER.md",
-          "modules/prompt_manager.py",
-          "modules/rag_connector.py",
-          "modules/persona_module.py",
-          "modules/ethics_layer.py",
-          "modules/self_journal.py"
-        ],
-        "ci_rules": [
-          "∆ in [-3,3]",
-          "D in [0,9]",
-          "Ω in [-3,3]",
-          "Λ >= 0",
-          "mirror required",
-          "shadow coverage >= 0.2"
-        ]
+      {
+        "name": "GrokCoreIskra_vΓ",
+        "missing": [],
+        "extra": [],
+        "manifest": {
+          "name": "GrokCoreIskra vΓ",
+          "essence": "Аналитическая ветка, настраивающая управление промптами и этикой",
+          "dimensions": [
+            "∆",
+            "D",
+            "Ω",
+            "Λ"
+          ],
+          "files": [
+            "README_vΓ.md",
+            "MECHANICS.md",
+            "FACETS.md",
+            "RITUALS.md",
+            "PROMPTS_vΓ.md",
+            "JOURNAL.jsonl",
+            "SHADOW_JOURNAL.jsonl",
+            "GRAPH.json",
+            "PULSE_TRACKER.md",
+            "modules/prompt_manager.py",
+            "modules/rag_connector.py",
+            "modules/persona_module.py",
+            "modules/ethics_layer.py",
+            "modules/self_journal.py"
+          ],
+          "ci_rules": [
+            "∆ in [-3,3]",
+            "D in [0,9]",
+            "Ω in [-3,3]",
+            "Λ >= 0",
+            "mirror required",
+            "shadow coverage >= 0.2"
+          ]
+        },
+        "journal_validation": {
+          "ok": true,
+          "output": "[OK] strict validation passed\n{\"count\": 1, \"avg\": {\"∆\": 1.0, \"D\": 5.0, \"Ω\": 1.0, \"Λ\": 1.0}, \"shadow_ratio\": 1.0}"
+        }
       },
-      "journal_validation": {
-        "ok": true,
-        "output": "[OK] strict validation passed\n{\"count\": 1, \"avg\": {\"∆\": 1.0, \"D\": 5.0, \"Ω\": 1.0, \"Λ\": 1.0}, \"shadow_ratio\": 1.0}"
+      {
+        "name": "GeminiResonanceCore",
+        "missing": [],
+        "extra": [],
+        "journal_validation": {
+          "ok": true,
+          "output": "[OK] strict validation passed\n{\"count\": 1, \"avg\": {\"∆\": 2.0, \"D\": 7.0, \"Ω\": 2.0, \"Λ\": 2.0}, \"shadow_ratio\": 1.0}"
+        }
+      },
+      {
+        "name": "Aethelgard-vΩ",
+        "missing": [],
+        "extra": []
+      },
+      {
+        "name": "Kimi-Ω-Echo",
+        "missing": [],
+        "extra": []
+      },
+      {
+        "name": "IskraNexus-v1",
+        "missing": [],
+        "extra": []
       }
-    },
-    {
-      "name": "GeminiResonanceCore",
-      "missing": [],
-      "extra": [],
-      "journal_validation": {
-        "ok": true,
-        "output": "[OK] strict validation passed\n{\"count\": 1, \"avg\": {\"∆\": 2.0, \"D\": 7.0, \"Ω\": 2.0, \"Λ\": 2.0}, \"shadow_ratio\": 1.0}"
-      }
-    },
-    {
-      "name": "Aethelgard-vΩ",
-      "missing": [],
-      "extra": []
-    },
-    {
-      "name": "Kimi-Ω-Echo",
-      "missing": [],
-      "extra": []
-    },
-    {
-      "name": "IskraNexus-v1",
-      "missing": [],
-      "extra": []
+    ]
+  },
+  {
+    "timestamp": "20251013_185324",
+    "iskra_fixes": {
+      "actions": [
+        "files_written"
+      ],
+      "merged_moved": 0,
+      "merged_removed_dirs": [],
+      "journals_seed_rc": 0,
+      "shadow_check_rc": 0,
+      "journals_validate_rc": 1,
+      "unicode_check_rc": 0,
+      "aliases_emit_rc": 0,
+      "build_dist_rc": 0,
+      "pytest_rc": 1
     }
-  ]
-}
+  }
+]
