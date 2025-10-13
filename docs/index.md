@@ -20,3 +20,6 @@ flowchart TD
 1. Клонируйте репозиторий.
 2. `make setup`
 3. `make test`
+
+## Ключевые спецификации
+- [Искра v3.1 — Трёхконтурная сборка](specs/iskra_v3.1_three_contour_spec.md): единая архитектура для Projects, Custom GPT и GitHub.

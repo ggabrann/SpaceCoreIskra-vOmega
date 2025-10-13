@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-10-13T16:26:27.386265+00:00",
+  "generated_at": "2025-10-13T18:15:33.101266+00:00",
   "files": [
     {
       "path": ".codexrc",
@@ -77,6 +77,11 @@
       "sha256": "c3ab601cec7c715308b3d89913a51572f9be23c866bcf83ddebd80e544feaf44"
     },
     {
+      "path": "AUDIT_2025-10-17.md",
+      "bytes": 17108,
+      "sha256": "defbcf9be1012765807d0f483bb94c02c1fedf6382f7f1d9f2d002ba966be80d"
+    },
+    {
       "path": "AUDIT_REPORT.md",
       "bytes": 3193,
       "sha256": "c9cf83bfbcc53838d8bdfdeab30ae54b013851698f34decad82fe745a211e2b7"
@@ -118,13 +123,13 @@
     },
     {
       "path": "DIST_MANIFEST.json",
-      "bytes": 32476,
-      "sha256": "915ca23a98e18089b47681b5a2f2ecb65208892adf510c19515b41d9b911d8c9"
+      "bytes": 26583,
+      "sha256": "d2c4cc15adf2b23d606e23ecab10714cbf0c035f0015ff41b7d9dea4f4c040f8"
     },
     {
       "path": "DIST_NOTE.md",
-      "bytes": 459,
-      "sha256": "2f1ffb8feb00a8b46b6496f3008ea46d0c11267743698639c3d8737378a1ab2b"
+      "bytes": 675,
+      "sha256": "e2463f98524798e5206a44ba0047202336c88af383e31d91d6302a04b3196622"
     },
     {
       "path": "GeminiResonanceCore/JOURNAL.jsonl",
@@ -135,6 +140,11 @@
       "path": "GeminiResonanceCore/README.md",
       "bytes": 72,
       "sha256": "937b178a1a433e6f3f036eaa4ebf935a89f436e72f7a4ec46b43e445da580d87"
+    },
+    {
+      "path": "GeminiResonanceCore/SHADOW_JOURNAL.jsonl",
+      "bytes": 192,
+      "sha256": "8b70b71e0dcccd07f27e0a5f4b439d1b5e829949c90c6b965f97d965a7a4f48f"
     },
     {
       "path": "GeminiResonanceCore/gemini_resonance_core.json",
@@ -283,13 +293,13 @@
     },
     {
       "path": "Makefile",
-      "bytes": 1024,
-      "sha256": "e6f69db4a97717b073cfaafe5e55062947eb4c2473aa7f9699fa8922490bf714"
+      "bytes": 2401,
+      "sha256": "7a3bb74571cf388c7db9c4d308ddfe12cff0ac6773ea56959dd818ec75bd28f9"
     },
     {
       "path": "README.md",
-      "bytes": 2451,
-      "sha256": "482b802dd4208102305e877668ea2101060cfa15ab8e160601e54d3e290e0f0a"
+      "bytes": 3255,
+      "sha256": "40502efab6395f3260b950a54968d19925e73833181bfa5fdf44a7aa2aef42f3"
     },
     {
       "path": "SECURITY.md",
@@ -353,8 +363,8 @@
     },
     {
       "path": "audit_report.json",
-      "bytes": 3288,
-      "sha256": "0324ffc8d06b3dfeedea0dc239614b9fda6a0a330b459b91b977a84fb14c5da9"
+      "bytes": 3432,
+      "sha256": "46bd207722f4f35e26dac0f85b10534ce0ba8789f77793092b536a9a57cf15a9"
     },
     {
       "path": "cards/DatasetCard_CanonJournals.md",
@@ -588,13 +598,18 @@
     },
     {
       "path": "docs/index.md",
-      "bytes": 696,
-      "sha256": "73f21a75574eddaf75e7024e9b0b4013d2ef04937e47fa12a5640670563bb83d"
+      "bytes": 922,
+      "sha256": "0312fe88ad7c65182cdd747ceb241dcd3e00b25866f8cd54c4ebf815174b465e"
     },
     {
       "path": "docs/model_card.md",
       "bytes": 15614,
       "sha256": "98724cb0ca212a1b8d6eeb5e30ffdb57bd9e4dd83d19648af7200846301a733b"
+    },
+    {
+      "path": "docs/specs/iskra_v3.1_three_contour_spec.md",
+      "bytes": 23342,
+      "sha256": "2c21d18dd8f25a164fd83ae81aabbe67ef0030a8c347516a1a7fe82b9eed4562"
     },
     {
       "path": "evals/README.md",
@@ -638,8 +653,8 @@
     },
     {
       "path": "requirements.txt",
-      "bytes": 45,
-      "sha256": "1098ea5589a362b5cc5a251675b009fa3985f94332ac7d3706d281c0f8d48d59"
+      "bytes": 31,
+      "sha256": "8f8bb64e68f198c7fed44756067dd2f795df28951d2db6c199e33238b8e45520"
     },
     {
       "path": "schemas/canon_manifest.schema.json",
@@ -673,8 +688,8 @@
     },
     {
       "path": "src/core/09_CODE_CORE.py",
-      "bytes": 45,
-      "sha256": "1098ea5589a362b5cc5a251675b009fa3985f94332ac7d3706d281c0f8d48d59"
+      "bytes": 4502,
+      "sha256": "2e6f73f6113df850caa48528fbaa0d9874e307bbc2f9f461a3f443d58586ecbe"
     },
     {
       "path": "src/iskra_cli/__init__.py",
@@ -683,13 +698,13 @@
     },
     {
       "path": "src/iskra_cli/cli.py",
-      "bytes": 2445,
-      "sha256": "aaf748a7713788775dfa46b7a1ea6d2e955c6433b3c804d8b411d3eb4158ebb8"
+      "bytes": 2429,
+      "sha256": "9e0fb1e3aefdb4974f34e9a107e209a6b4f4242c14ed58c6d0d5584f3c369bdc"
     },
     {
       "path": "src/util/10_CODE_UTILITIES.py",
-      "bytes": 45,
-      "sha256": "1098ea5589a362b5cc5a251675b009fa3985f94332ac7d3706d281c0f8d48d59"
+      "bytes": 3948,
+      "sha256": "d86a4e5ce091a121622e836d3b6d62201f5447bdaeb4d5bf32fcd213f4ae3592"
     },
     {
       "path": "tests/conftest.py",
@@ -737,19 +752,24 @@
       "sha256": "070edd7ff1065c71746f66489286b41dbaa4c53ddeb6dda6dbd1d6efa2f78658"
     },
     {
+      "path": "tests/test_subsystem_modules.py",
+      "bytes": 4763,
+      "sha256": "3cbe0a19d7077e67159bf3a164968873c7c549669d6b39463ba5f4ab8d2af223"
+    },
+    {
       "path": "tools/__init__.py",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
       "path": "tools/audit_repo.py",
-      "bytes": 8506,
-      "sha256": "977e76bf1b117ebdc037f5762b165787347ddc44695a961e9874ebb7f4584122"
+      "bytes": 8792,
+      "sha256": "1e2ebf2889d62bf2ce1d13afb7673f789f5b0589488a2e70306e181d83177da5"
     },
     {
       "path": "tools/build_dist.py",
-      "bytes": 5821,
-      "sha256": "c591e08ab0392287b6e4441685c96a53e83d0a38774d7bdf0e75b7c5dd9ca3ae"
+      "bytes": 5811,
+      "sha256": "e8aa75f00cc6ba1b4da6f416f1a818a40735aab61016d715d8fa83adac325623"
     },
     {
       "path": "tools/check_unicode_ascii_mirrors.py",
@@ -783,8 +803,8 @@
     },
     {
       "path": "tools/validate_json_schemas.py",
-      "bytes": 6856,
-      "sha256": "7080de6a00a092ec9071a932a89318aaf7aa750bd3a436df402ffb7511a0d48b"
+      "bytes": 7314,
+      "sha256": "fc3f1dfde9b3d6e27e298d292f03614f5e5f55dfb7cff39d03f1b4cb3cd1217b"
     },
     {
       "path": "veil_rules.txt",
@@ -793,10 +813,10 @@
     },
     {
       "path": "dist/SpaceCoreIskra-vOmega_MAIN_CANON_DIST.zip",
-      "bytes": 3074446,
-      "sha256": "895826f62a9ad51a51db9be1292b85a3e7482193dcc660b6032fa2c144fccc7b"
+      "bytes": 3093287,
+      "sha256": "b64f19fd35a553cc0c85084fcb3d1293cc7bff6cf5876408929c33047b76936c"
     }
   ],
   "package": "SpaceCoreIskra-vOmega",
-  "version": "0.1.1"
+  "version": "0.1.0"
 }
