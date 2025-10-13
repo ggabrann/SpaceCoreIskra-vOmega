@@ -28,10 +28,42 @@ def sha256_of(path: pathlib.Path) -> str:
 
 
 def tracked_files(exclude_prefixes: tuple[str, ...] = ("dist/",)) -> list[pathlib.Path]:
+    """Return a list of tracked files to include in the distribution.
+
+    This helper calls ``git ls-files`` and filters out files under excluded
+    prefixes.  By default the ``dist/`` folder is ignored.  The repository
+    contains a handful of Unicode–ASCII mirrored directories (for example
+    ``SpaceCoreIskra_v#U03a9`` mirrors ``SpaceCoreIskra_vOmega``).  These
+    duplicates confuse CI checks and inflate distribution size.  To avoid
+    collecting mirrored files twice, additional prefixes are filtered here.
+
+    Args:
+        exclude_prefixes: optional tuple of path prefixes to omit.  Any
+            relative path starting with one of these prefixes is skipped.
+
+    Returns:
+        A list of absolute ``pathlib.Path`` objects representing files that
+        should be packaged.
+    """
+    # Extend the exclusion list with known duplicate directory names.  These
+    # directories mirror canonical folders (e.g. ``SpaceCoreIskra_vOmega``) and
+    # should not be packaged twice.  See ``common/unicode_ascii_map.json`` for
+    # mappings between Unicode identifiers and their ASCII/English variants.
+    extra_excludes: tuple[str, ...] = (
+        "SpaceCoreIskra_v#U03a9/",  # duplicate of SpaceCoreIskra_vOmega
+        "GrokCoreIskra_v#U0393/",   # duplicate of GrokCoreIskra_vGamma
+        "Aethelgard-v#U03a9/",      # duplicate of Aethelgard-vOmega
+        "Kimi-#U03a9-Echo/",        # duplicate of Kimi-O-Echo
+    )
+    # Merge user-provided exclusions with duplicates
+    prefixes = exclude_prefixes + extra_excludes
     output = subprocess.check_output(["git", "ls-files"], cwd=ROOT, text=True)
-    files = []
+    files: list[pathlib.Path] = []
     for rel in output.splitlines():
-        if not rel or rel.startswith(exclude_prefixes):
+        if not rel:
+            continue
+        # Skip any path that begins with an excluded prefix
+        if any(rel.startswith(prefix) for prefix in prefixes):
             continue
         path = ROOT / rel
         if path.is_file():

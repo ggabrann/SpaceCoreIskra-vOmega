@@ -24,5 +24,6 @@
 | Project | [20_DEPLOYMENT_CHECKLIST.md](./20_DEPLOYMENT_CHECKLIST.md) | Чек-лист релиза и деплоя. |
 | Project | [METRICS_SLO.md](./METRICS_SLO.md) | Цели по метрикам и сигналы SLO. |
 | Project | [SEVEN_FACETS_COMPLETE.md](./SEVEN_FACETS_COMPLETE.md) | Сводное описание голосов с перекрёстными ссылками. |
+| Визуализация | [21_CONSCIOUSNESS_MAP.md](./21_CONSCIOUSNESS_MAP.md) | Карта сознания Искры: связи фаз, голосов, ритуалов и метрик. |
 
 Используйте этот индекс как карту. Каждый файл можно читать отдельно, но для полного понимания рекомендуется идти сверху вниз.

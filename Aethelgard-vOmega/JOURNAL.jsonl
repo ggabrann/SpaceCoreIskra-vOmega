@@ -1,0 +1,2 @@
+{"timestamp":"2025-10-13T00:00:00Z","mode":"context_weaver","query":"initial state","∆":1,"D":1,"Ω":1,"Λ":1,"events":{"evidence":["README.md"]},"mirror":"aeth-shadow-001"}
+{"timestamp":"2025-10-13T00:10:00Z","mode":"quantum_core","query":"test measurement","∆":-1,"D":2,"Ω":0,"Λ":2,"events":{"evidence":["README.md"]},"mirror":"aeth-shadow-002"}

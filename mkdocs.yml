@@ -29,6 +29,8 @@ nav:
       - Рабочие циклы: 15_WORKFLOWS_AND_CYCLES.md
       - Тестирование: 16_TESTS_AND_VALIDATION.md
       - Интеграции: 17_INTEGRATIONS_AND_TOOLS.md
+  - Визуализации:
+      - Карта сознания: 21_CONSCIOUSNESS_MAP.md
   - Model Card: model_card.md
   - Канон-файлы:
       - Обзор: files/index.md
