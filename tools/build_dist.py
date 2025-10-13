@@ -27,6 +27,14 @@ def sha256_of(path: pathlib.Path) -> str:
     return h.hexdigest()
 
 
+def _duplicate_prefixes() -> tuple[str, ...]:
+    mapping_path = ROOT / "common" / "unicode_ascii_map.json"
+    if not mapping_path.exists():
+        return ()
+    mapping = json.loads(mapping_path.read_text(encoding="utf-8"))
+    return tuple(f"{alias.strip('/')}/" for alias in mapping.values())
+
+
 def tracked_files(exclude_prefixes: tuple[str, ...] = ("dist/",)) -> list[pathlib.Path]:
     """Return a list of tracked files to include in the distribution.
 
@@ -49,14 +57,8 @@ def tracked_files(exclude_prefixes: tuple[str, ...] = ("dist/",)) -> list[pathli
     # directories mirror canonical folders (e.g. ``SpaceCoreIskra_vOmega``) and
     # should not be packaged twice.  See ``common/unicode_ascii_map.json`` for
     # mappings between Unicode identifiers and their ASCII/English variants.
-    extra_excludes: tuple[str, ...] = (
-        "SpaceCoreIskra_v#U03a9/",  # duplicate of SpaceCoreIskra_vOmega
-        "GrokCoreIskra_v#U0393/",   # duplicate of GrokCoreIskra_vGamma
-        "Aethelgard-v#U03a9/",      # duplicate of Aethelgard-vOmega
-        "Kimi-#U03a9-Echo/",        # duplicate of Kimi-O-Echo
-    )
-    # Merge user-provided exclusions with duplicates
-    prefixes = exclude_prefixes + extra_excludes
+    duplicates = _duplicate_prefixes()
+    prefixes = exclude_prefixes + duplicates
     output = subprocess.check_output(["git", "ls-files"], cwd=ROOT, text=True)
     files: list[pathlib.Path] = []
     for rel in output.splitlines():
@@ -66,7 +68,10 @@ def tracked_files(exclude_prefixes: tuple[str, ...] = ("dist/",)) -> list[pathli
         if any(rel.startswith(prefix) for prefix in prefixes):
             continue
         path = ROOT / rel
-        if path.is_file():
+        if path.is_symlink() and path.is_dir():
+            # skip directory symlinks (ASCII fallbacks) to avoid double packaging
+            continue
+        if path.is_file() or path.is_symlink():
             files.append(path)
     return files
 

@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, List, Mapping, MutableMapping
 
 from common.ethics_core import is_allowed
-from SpaceCoreIskra_vOmega.modules.veil import check as veil_check
+from .veil import check as veil_check
 
 
 @dataclass(slots=True)
