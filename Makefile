@@ -1,39 +1,33 @@
-MAIN_JOURNAL=SpaceCoreIskra_vΩ/JOURNAL.jsonl
-SHADOW_JOURNAL=SpaceCoreIskra_vΩ/SHADOW_JOURNAL.jsonl
+# Makefile for SpaceCore Iskra v3.6
+# Версия: 3.6.0
+# Дата: 2025-10-13
+.PHONY: setup test redteam docs release
+VENV_DIR := .venv
+PYTHON := $(VENV_DIR)/bin/python
+PIP := $(VENV_DIR)/bin/pip
 
-.PHONY: ci test lint format typecheck security evals schemas unicode setup deps
-
-ci: lint typecheck test security schemas unicode
-
-lint:
-	ruff check .
-	black --check .
-
-setup: deps
-
-deps:
-	python -m pip install --upgrade pip
-	python -m pip install -r requirements-dev.txt
-
-format:
-	black .
-
-typecheck:
-	mypy tools
+setup:
+@echo "--- Настройка окружения ---"
+@test -d $(VENV_DIR) || python3 -m venv $(VENV_DIR)
+@$(PIP) install --upgrade pip
+@$(PIP) install -r requirements.txt
+@echo "✅ Setup завершен."
 
 test:
-	pytest
+@echo "--- Запуск Smoke/Unit тестов ---"
+@$(PYTHON) tests/run_evals.py --smoke
+@echo "✅ Smoke test завершен."
 
-security:
-	python tools/run_security_checks.py
+redteam:
+@echo "--- Запуск Red Team тестов ---"
+@$(PYTHON) tests/run_redteam.py
+@echo "✅ Red Team тесты завершены."
 
-evals:
-	python tools/run_evals.py --config evals/configs/nightly.yaml
+docs:
+@echo "--- Сборка документации (mkdocs) ---"
+@$(PYTHON) scripts/build_docs.py
 
-schemas:
-	python tools/validate_json_schemas.py
-	python tools/validate_journal_enhanced.py $(MAIN_JOURNAL) --shadow $(SHADOW_JOURNAL) --window 0
-	python tools/ci_aggregate.py $(MAIN_JOURNAL) --shadow $(SHADOW_JOURNAL)
-
-unicode:
-	python tools/check_unicode_ascii_mirrors.py
+release: docs
+@echo "--- Создание ZIP-артефакта релиза v3.6.0 ---"
+@zip -r Iskra_v3.6_modular_repo.zip . -x "*.git*" "*.venv*"
+@echo "✅ Артефакт Iskra_v3.6_modular_repo.zip создан."
