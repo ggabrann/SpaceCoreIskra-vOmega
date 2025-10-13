@@ -10,5 +10,7 @@ spacecoreiskra.egg-info/
 site/
 .mkdocs-cache/
 model_cards/*.json
-dist/
+dist/*
 !dist/.gitkeep
+!dist/agiagentIskra_v4_total_MAX_DIST.sha256
+agiagentIskra_v4_total/data/entropy_core.bin
