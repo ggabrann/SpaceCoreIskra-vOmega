@@ -2,7 +2,7 @@
 # Версия: 3.6.0
 # Дата: 2025-10-13
 
-.PHONY: setup deps lint format format-check typecheck test schemas unicode security docs release ci clean
+.PHONY: setup deps lint format format-check typecheck test schemas unicode security docs release ci three-contours clean
 
 VENV_DIR := .venv
 PYTHON := $(VENV_DIR)/bin/python
@@ -72,6 +72,11 @@ release: docs
 
 ci: format-check lint typecheck test schemas unicode security
 	@echo "✅ Все проверки пройдены."
+
+three-contours: $(PYTHON)
+	@echo "--- Сборка трёхконтурных пакетов ---"
+	@$(PYTHON) tools/build_three_contours.py --clean --package
+	@echo "✅ Папка dist/three_contours готова."
 
 clean:
 	@echo "--- Очистка окружения и артефактов ---"
