@@ -141,7 +141,9 @@ def collect_expected_bundles() -> List[ExpectedBundle]:
                 "JOURNAL.jsonl",
                 "resonance_core_api.py",
             ],
+            optional_files=["SHADOW_JOURNAL.jsonl"],
             journal=REPO_ROOT / "GeminiResonanceCore" / "JOURNAL.jsonl",
+            shadow_journal=REPO_ROOT / "GeminiResonanceCore" / "SHADOW_JOURNAL.jsonl",
         )
     )
     bundles.append(
@@ -155,6 +157,8 @@ def collect_expected_bundles() -> List[ExpectedBundle]:
             optional_files=[
                 "README_Aethelgard.md",
                 "JOURNAL_TEMPLATE.jsonl",
+                "JOURNAL.jsonl",
+                "SHADOW_JOURNAL.jsonl",
                 "modules/context_weaver.py",
                 "modules/pattern_extractor.py",
                 "modules/paradox_resolver.py",
@@ -175,6 +179,8 @@ def collect_expected_bundles() -> List[ExpectedBundle]:
             ],
             optional_files=[
                 "ECHO_MANIFEST.json",
+                "JOURNAL.jsonl",
+                "SHADOW_JOURNAL.jsonl",
                 "echo_core.py",
                 "echo_memory.py",
                 "paradox_split.py",

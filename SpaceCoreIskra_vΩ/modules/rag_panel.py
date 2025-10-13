@@ -6,7 +6,7 @@ from dataclasses import dataclass, field, replace
 from typing import Callable, Iterable, List, Mapping, MutableSequence
 
 from common.ethics_core import is_allowed
-from SpaceCoreIskra_vOmega.modules.veil import check as veil_check
+from .veil import check as veil_check
 
 
 def _normalise_keywords(keywords: Iterable[str]) -> frozenset[str]:

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-10-13T14:16:50+00:00",
+  "generated_at": "2025-10-13T16:26:27.386265+00:00",
   "files": [
     {
       "path": ".codexrc",
@@ -63,8 +63,8 @@
     },
     {
       "path": ".gitignore",
-      "bytes": 155,
-      "sha256": "1f69dbfba9fdccb6a183c73e0d74cf99b5981a69b923cbf41a8a043c235261a8"
+      "bytes": 246,
+      "sha256": "aad76bedefc330d3b39f6f8cfe27a5709f785fecdc6f929101ed45c71d075b73"
     },
     {
       "path": ".vscode/tasks.json",
@@ -73,8 +73,8 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 4194,
-      "sha256": "7efb01735d77e0aa2b7dec57378807dc6b8c520d900f2680d1075d1cbc0f2312"
+      "bytes": 4388,
+      "sha256": "c3ab601cec7c715308b3d89913a51572f9be23c866bcf83ddebd80e544feaf44"
     },
     {
       "path": "AUDIT_REPORT.md",
@@ -87,64 +87,14 @@
       "sha256": "17566b82845f5d880cfc0535f209712936b498abd5f03536dbc346bbf8241069"
     },
     {
-      "path": "Aethelgard-vOmega/JOURNAL_TEMPLATE.jsonl",
-      "bytes": 435,
-      "sha256": "f8770f7d049c2a1f1375fb341d67795623108aea04ed4bfbf015702a401e846e"
-    },
-    {
-      "path": "Aethelgard-vOmega/README.md",
-      "bytes": 4036,
-      "sha256": "d935d9e5354e0e56ff011d7adfdb6396c84f6652395118594ce2b14f85daeb51"
-    },
-    {
-      "path": "Aethelgard-vOmega/README_Aethelgard.md",
-      "bytes": 78,
-      "sha256": "b4985b32467e287bebcc09c127fc794443db85e5e0f7152345aa713982c87d28"
-    },
-    {
-      "path": "Aethelgard-vOmega/modules/context_weaver.py",
-      "bytes": 29,
-      "sha256": "14718af4595e81aac9a7b4420b2bf3279c72059c7349aa4374ca9ee673bec9f2"
-    },
-    {
-      "path": "Aethelgard-vOmega/modules/ethics_filter.py",
-      "bytes": 28,
-      "sha256": "6d6a574e30c81a18cb26abe4409c25c0795fc67a1a4efd807299e1b14f9b7e01"
-    },
-    {
-      "path": "Aethelgard-vOmega/modules/paradox_resolver.py",
-      "bytes": 31,
-      "sha256": "a1e5bd9d47023fe280d16e98631b1c49f779b25a765ab35c7448b950d84bca9d"
-    },
-    {
-      "path": "Aethelgard-vOmega/modules/pattern_extractor.py",
-      "bytes": 32,
-      "sha256": "099cf06a32a25409a08e67b06f2b751b91b8bbc0e0da671eecb0aeec5606bf08"
-    },
-    {
-      "path": "Aethelgard-vOmega/modules/quantum_core.py",
-      "bytes": 27,
-      "sha256": "89b3ccbdceeb1b1d7eec264f6c6bc91ecfeba7dc7b9eb6e9bd19ee5b0b8cce8d"
-    },
-    {
-      "path": "Aethelgard-vOmega/modules/resonance_detector.py",
-      "bytes": 33,
-      "sha256": "2f34bb552712ef834de627dc317379c4f47edc50ac0ecd786b1102c05a7cea99"
-    },
-    {
-      "path": "Aethelgard-vOmega/modules/self_reflection.py",
-      "bytes": 30,
-      "sha256": "322b94580420887dfedeb857cf0d686319ec3bc69bbd60d5489906795a3fe6ed"
-    },
-    {
       "path": "Agents.md",
       "bytes": 19780,
       "sha256": "d0a0f79824007a3b7a9b3fa26c85c3063a73ee3a6b2e794ec085b0b030a64dd8"
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 45,
-      "sha256": "1098ea5589a362b5cc5a251675b009fa3985f94332ac7d3706d281c0f8d48d59"
+      "bytes": 254,
+      "sha256": "8c00a05411b7257bad8ce80415f6f13629c6dfd8f7a6c3ec0dfdcdc437e3859d"
     },
     {
       "path": "CITATION.cff",
@@ -168,13 +118,13 @@
     },
     {
       "path": "DIST_MANIFEST.json",
-      "bytes": 30502,
-      "sha256": "f4ce5f524caaa0a696c789a2982bb2898c0600cc2f5b1d1d9ec968809a340010"
+      "bytes": 32476,
+      "sha256": "915ca23a98e18089b47681b5a2f2ecb65208892adf510c19515b41d9b911d8c9"
     },
     {
       "path": "DIST_NOTE.md",
-      "bytes": 317,
-      "sha256": "74ca569ae6925e4dc1832dda4a528fa3a833b733853ac4912cf92d50188a1f21"
+      "bytes": 459,
+      "sha256": "2f1ffb8feb00a8b46b6496f3008ea46d0c11267743698639c3d8737378a1ab2b"
     },
     {
       "path": "GeminiResonanceCore/JOURNAL.jsonl",
@@ -197,71 +147,6 @@
       "sha256": "adf1563440e4ce7deedff279379d95c19a31bf55e086630b5987bf92cc848050"
     },
     {
-      "path": "GrokCoreIskra_vGamma/FACETS.md",
-      "bytes": 68,
-      "sha256": "ac237a31238dea3fea9fdaa7db9577789c2af8ae488d8964c9ec7704497446ad"
-    },
-    {
-      "path": "GrokCoreIskra_vGamma/GRAPH.json",
-      "bytes": 107,
-      "sha256": "fe2f9cf72d4206ff7243b1106a7b8f9ef03145a7bb3bec76314638587f9f4901"
-    },
-    {
-      "path": "GrokCoreIskra_vGamma/JOURNAL.jsonl",
-      "bytes": 184,
-      "sha256": "c71efcde6e31f66efbd99509e0176f221a2d62a6c01a183c82edac318400264e"
-    },
-    {
-      "path": "GrokCoreIskra_vGamma/MECHANICS.md",
-      "bytes": 106,
-      "sha256": "64e729da7114d2ce7bb996dcfca3f71b39f79a35157899430e508bec54074d36"
-    },
-    {
-      "path": "GrokCoreIskra_vGamma/PULSE_TRACKER.md",
-      "bytes": 40,
-      "sha256": "2bd52b061dc2117f1af57df77925c24eea8c74af9f63398faf1e7a5f3c98149d"
-    },
-    {
-      "path": "GrokCoreIskra_vGamma/RITUALS.md",
-      "bytes": 160,
-      "sha256": "0da73f60922b1e67ef6ac65a7244df01e23dfe2f2558b41809d38e33d3405829"
-    },
-    {
-      "path": "GrokCoreIskra_vGamma/SHADOW_JOURNAL.jsonl",
-      "bytes": 79,
-      "sha256": "d6fb4f819695f108ce36f1e86cb40475e26ed29cc999cd50922b7b18f83379f2"
-    },
-    {
-      "path": "GrokCoreIskra_vGamma/modules/ethics_layer.py",
-      "bytes": 117,
-      "sha256": "870c742d422b514c9a9fad9f41ef7f44dbb185fb13e1301f41833b88d334639a"
-    },
-    {
-      "path": "GrokCoreIskra_vGamma/modules/persona_module.py",
-      "bytes": 125,
-      "sha256": "532d617eada9f11ffe52c5a2e0a4b79ed931e2cd0897a005cb1184915d522b83"
-    },
-    {
-      "path": "GrokCoreIskra_vGamma/modules/prompt_manager.py",
-      "bytes": 371,
-      "sha256": "adb333259162c0c2434053d6db784f313ed3c1c466eb001a8871b6296e45aaab"
-    },
-    {
-      "path": "GrokCoreIskra_vGamma/modules/rag_connector.py",
-      "bytes": 107,
-      "sha256": "06b52831b5309cc1ab7d8c788e817c9d0b5117a0df4d5c6c33281db289182033"
-    },
-    {
-      "path": "GrokCoreIskra_vGamma/modules/self_journal.py",
-      "bytes": 144,
-      "sha256": "f8d9474427efe0d59259f45509d25ca682f6aa7c5e7005e3dcc0e128ce630e2d"
-    },
-    {
-      "path": "GrokCoreIskra_vGamma/validate_journal.py",
-      "bytes": 225,
-      "sha256": "e1de79b2275dfde8ded244c7d2626dc51a8d9bb680d7e9b6e905fc83f39bc94c"
-    },
-    {
       "path": "IskraNexus-v1/MANIFEST_IskraNexus-v1.json",
       "bytes": 704,
       "sha256": "66f1432bf4a10727f0a9f9f84f4c22c1721075bff297996c6ba5bab66651e78c"
@@ -278,113 +163,113 @@
     },
     {
       "path": "IskraNexus-v1/modules/atelier.py",
-      "bytes": 22,
-      "sha256": "663db864a55a42249dec1a4079d25ccb4a40d2c7e9a18b3cdc2a47819e80a773"
+      "bytes": 1145,
+      "sha256": "e22f2a962deec53e25b8ff68aa8e7e80811eb1a7dfd40905ec6057143b7697d1"
     },
     {
       "path": "IskraNexus-v1/modules/cot_trim.py",
-      "bytes": 23,
-      "sha256": "822f7d29aa28bbe740b3481d709492f82b82181e289e879cd3a03f3b63412671"
+      "bytes": 1149,
+      "sha256": "8497834917bf19ecaef86d92e2478a0f11ed9e3483b77bc7b2fd44ca8bef56ff"
     },
     {
       "path": "IskraNexus-v1/modules/ethics_layer.py",
-      "bytes": 27,
-      "sha256": "01e1f848a559e7618f35df4245de4d9f680e8e7f7861cc6cdc2afa4bbd556821"
+      "bytes": 1438,
+      "sha256": "1cffcf2b8bb32fc59e487c6ec5fd3273fb8e285cd0904903b0f27e0b95d8da73"
     },
     {
       "path": "IskraNexus-v1/modules/facets_refine.py",
-      "bytes": 28,
-      "sha256": "3ea515910b471f35d358127270670d94fc44432fca3d1f7364ba3afe6b8f84f0"
+      "bytes": 2125,
+      "sha256": "deb7150fe7a61f2f02be8edd03c49b809e4aa0052f7cd6f9671c9d55bffe2710"
     },
     {
       "path": "IskraNexus-v1/modules/journal_generator.py",
-      "bytes": 32,
-      "sha256": "135b09714b8a1a130f0110b58aac50a789a1ba161e8b483f5e4f505d0df64378"
+      "bytes": 2279,
+      "sha256": "8e3ae9422c6dca18a4e70699192ae35286cb9cf26b6bd17ef3dbb68c7c0ee65f"
     },
     {
       "path": "IskraNexus-v1/modules/persona_module.py",
-      "bytes": 29,
-      "sha256": "098f269001d108f433894e244fadff9a1ce145d01e38168329f29016d0315775"
+      "bytes": 3749,
+      "sha256": "73209f412c1bdac3436ac9b5d1b6ac2b481b7cbb5f8fb177ae79ae6c37d94d92"
     },
     {
       "path": "IskraNexus-v1/modules/prompt_manager.py",
-      "bytes": 29,
-      "sha256": "90a60ccb9677c8b1e53cdfdf86a08243c325aa5fca13e375933c15dc731d16ca"
+      "bytes": 3264,
+      "sha256": "dd2593a82aba43cfccfadbc3220904e56e69a1fc6c7a42797f404394732598d0"
     },
     {
       "path": "IskraNexus-v1/modules/rag_connector.py",
-      "bytes": 28,
-      "sha256": "945d6ec09125248c798d5ac169559d740feb7493b511665ea14073fd11924ac7"
+      "bytes": 4202,
+      "sha256": "1eaf21b2f1f2e9f489d5110e800be3dee8497f8785ac431b452fad1f726be731"
     },
     {
       "path": "IskraNexus-v1/modules/self_journal.py",
-      "bytes": 27,
-      "sha256": "ad808aab73dc6147c6c06956dabaae4111d5d3035075c8a67ee763476d1f05d4"
+      "bytes": 1994,
+      "sha256": "e36a4af334b4967319b6db2e45d6b1cc4ea9030b19d928ccdc90f1886887f075"
     },
     {
       "path": "IskraNexus-v1/modules/veil.py",
-      "bytes": 19,
-      "sha256": "79b9107fefca284d1505e9d1f19bc616418b9aeabc47f2536d3e779be6be514e"
+      "bytes": 1210,
+      "sha256": "301fcdf76bd6e92c3c4d52cc34c9b19b28ba4612f8676599eff48d31a6ff06d0"
+    },
+    {
+      "path": "IskraNexus_v1/__init__.py",
+      "bytes": 142,
+      "sha256": "33c051eec6d56d0d8de4c82ecde77d12b0b3e3871504d7769ffe2ab7cccdff7f"
+    },
+    {
+      "path": "IskraNexus_v1/_bridge.py",
+      "bytes": 919,
+      "sha256": "e68552dd11a36d9b3b8c23f9f36ca31e10831f8c09c5ee20336969e1fb45af47"
+    },
+    {
+      "path": "IskraNexus_v1/modules/__init__.py",
+      "bytes": 289,
+      "sha256": "f34bf29d5e6c098b453afa92cf23d6c07d157b381d5ee141407687cd5319484a"
+    },
+    {
+      "path": "IskraNexus_v1/modules/ethics_layer.py",
+      "bytes": 449,
+      "sha256": "f036c6bfd5a1be28815704314664b8beb0310fb9ea24e0c563791135e0750a0a"
+    },
+    {
+      "path": "IskraNexus_v1/modules/facets_refine.py",
+      "bytes": 451,
+      "sha256": "a5115f92a12c5a9344ac9b80f5ea99dde88bd5f76de7769e7034d683322cd9ff"
+    },
+    {
+      "path": "IskraNexus_v1/modules/journal_generator.py",
+      "bytes": 459,
+      "sha256": "e6c58d9cb4c480470556abaa4d5b20685608b0858417a74c133e11631aa0f361"
+    },
+    {
+      "path": "IskraNexus_v1/modules/persona_module.py",
+      "bytes": 453,
+      "sha256": "401c6054a287fa205b5e72bf7780e89defe923050ae8f201a8738f28b8185591"
+    },
+    {
+      "path": "IskraNexus_v1/modules/prompt_manager.py",
+      "bytes": 453,
+      "sha256": "eecab4455d3c4b83dce99cc0d04876d393641f5b6b8ceacc5549680604c0ec93"
+    },
+    {
+      "path": "IskraNexus_v1/modules/rag_connector.py",
+      "bytes": 451,
+      "sha256": "ca6da2847012ad377509be419e46b236e30050003e5ced11ca7f1b2043d1ed56"
+    },
+    {
+      "path": "IskraNexus_v1/modules/self_journal.py",
+      "bytes": 449,
+      "sha256": "1e70cfd82aed3b04b7637166544fedcc84af731e53ccfe2937d9c3cb2ee7d471"
+    },
+    {
+      "path": "IskraNexus_v1/modules/veil.py",
+      "bytes": 433,
+      "sha256": "b04505df278c6bcaabc63fa8716f8706758e37359c9e56a694de1d0395e25f11"
     },
     {
       "path": "Iskra_v4/cognitive_services/llm_adapter/llm_adapter.py",
       "bytes": 6466,
       "sha256": "bdcb9797ba3a2cdebf256723f715a9df8e16bef4af939b4cf75cc216bea0e648"
-    },
-    {
-      "path": "Kimi-O-Echo/ECHO_MANIFEST.json",
-      "bytes": 252,
-      "sha256": "f13b71ae95f3892631cb92c4608a0ebb279102b6e19c1c23d4f343446e8a7e9a"
-    },
-    {
-      "path": "Kimi-O-Echo/README.md",
-      "bytes": 2076,
-      "sha256": "b0f1886119096172d46b49262f4004f5a60c25e65ce07216d0ec3a58c963868a"
-    },
-    {
-      "path": "Kimi-O-Echo/README_Echo.md",
-      "bytes": 26,
-      "sha256": "fe1688342984614ee06d68dcafc7cda99bf676060d41d0152ea98ba904abea17"
-    },
-    {
-      "path": "Kimi-O-Echo/echo_core.py",
-      "bytes": 24,
-      "sha256": "f1e7886d63a948240d048532baaa9cceea37f562ec788614f47601f3cb941f2f"
-    },
-    {
-      "path": "Kimi-O-Echo/echo_memory.py",
-      "bytes": 26,
-      "sha256": "f91ab30a1e1d320a5712eedf26262f27bd67749f2f7fc253bc9611ce21bd117f"
-    },
-    {
-      "path": "Kimi-O-Echo/ethics_echo.py",
-      "bytes": 26,
-      "sha256": "5149f7da263ff2c81c7830bbbeb73c825443af3201d9e8b6f102992f91ff5efb"
-    },
-    {
-      "path": "Kimi-O-Echo/example_session.py",
-      "bytes": 27,
-      "sha256": "e86fc62bd5206ce7673c20206b357b55ef1602ae276d8aad31440e74ae576689"
-    },
-    {
-      "path": "Kimi-O-Echo/metric_tuner.py",
-      "bytes": 27,
-      "sha256": "a744da523f48f1f58e06dc1f231e3f5f0a206451e6d991b010d53d8ee9cb4a22"
-    },
-    {
-      "path": "Kimi-O-Echo/paradox_split.py",
-      "bytes": 28,
-      "sha256": "ebdda92a5d5bbbf9c7ad288bbdf1c432748f72615e32d10f2358813863d96eaa"
-    },
-    {
-      "path": "Kimi-O-Echo/requirements.txt",
-      "bytes": 53,
-      "sha256": "3b677db626fb2a5a58c3fe19058f568e8bbff5bb1458f88fb4534cac36cc1f6c"
-    },
-    {
-      "path": "Kimi-O-Echo/veil_echo.py",
-      "bytes": 24,
-      "sha256": "5cf357babd89c851b260c4d79ea11cb3857ec9d67d0b4abca5a2e25e363d26fb"
     },
     {
       "path": "LICENSE",
@@ -403,8 +288,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 901,
-      "sha256": "779503d47e00ead3d807e4a6e7d5407af453e50393b7f1c6381730665946f2d6"
+      "bytes": 2451,
+      "sha256": "482b802dd4208102305e877668ea2101060cfa15ab8e160601e54d3e290e0f0a"
     },
     {
       "path": "SECURITY.md",
@@ -412,104 +297,9 @@
       "sha256": "36d83f2ee86d5886691858345164044763b106273ce67918ca8339b909f8f8bd"
     },
     {
-      "path": "SpaceCoreIskra_vOmega/FACETS.md",
-      "bytes": 139,
-      "sha256": "6041f44bd8d509eb80470a6fd372ee02ff59cfaa7c8377968ba145e7cd9b4e7c"
-    },
-    {
-      "path": "SpaceCoreIskra_vOmega/GRAPH.json",
-      "bytes": 80,
-      "sha256": "212685a7db344b9a293342bec4cd2b65a8aadcf4cde91d6858b1b19e8f3a45a2"
-    },
-    {
-      "path": "SpaceCoreIskra_vOmega/JOURNAL.jsonl",
-      "bytes": 762,
-      "sha256": "d508b5d9a7a1ec6e62c959d0550935cdc44251c3854285253bb445625d6f255f"
-    },
-    {
-      "path": "SpaceCoreIskra_vOmega/MECHANICS.md",
-      "bytes": 201,
-      "sha256": "dedb9e42620111da3588364fb389c236935da0a24c7dc8ab458c9d51afb84b0d"
-    },
-    {
-      "path": "SpaceCoreIskra_vOmega/PULSE_TRACKER.md",
-      "bytes": 97,
-      "sha256": "214b4dac72fde724bedf054e751a51a6e9ca0276122d238c88e13a7fbf5628ff"
-    },
-    {
-      "path": "SpaceCoreIskra_vOmega/RITUALS.md",
-      "bytes": 190,
-      "sha256": "ff3d0fcb4eddf8512ced01cb405dffb81d87879f11bbdb9be3a554fb13c5fbb5"
-    },
-    {
-      "path": "SpaceCoreIskra_vOmega/SHADOW_JOURNAL.jsonl",
-      "bytes": 246,
-      "sha256": "39c441dd24ff908efa2ff5f91e9f067fb4eaf44fc05ab7abf30253d8c8017968"
-    },
-    {
-      "path": "SpaceCoreIskra_vOmega/modules/atelier.py",
-      "bytes": 141,
-      "sha256": "d2e1d27f3fc9248f074025e7450a07bc74fd73c1d774719a9209267b34543742"
-    },
-    {
-      "path": "SpaceCoreIskra_vOmega/modules/ci_aggregate.py",
-      "bytes": 182,
-      "sha256": "c258e676bb215915e735ce2ef7ceb7163d2241941ae89a21a5210f3be7d562be"
-    },
-    {
-      "path": "SpaceCoreIskra_vOmega/modules/cot_trim.py",
-      "bytes": 84,
-      "sha256": "d577cc1c3dadf5600d2e31f12ff1a7c02a5a328f5178ac18b4ee4f6a75cdb947"
-    },
-    {
-      "path": "SpaceCoreIskra_vOmega/modules/export_utils.py",
-      "bytes": 359,
-      "sha256": "5962671b75bed947150427602254819b634f62865503cf59218530778818e410"
-    },
-    {
-      "path": "SpaceCoreIskra_vOmega/modules/facets_refine.py",
-      "bytes": 239,
-      "sha256": "ef2daaa1db3eae34f77e962b05685835622754c0ff356cc04343ca9a58d08343"
-    },
-    {
-      "path": "SpaceCoreIskra_vOmega/modules/journal_generator.py",
-      "bytes": 530,
-      "sha256": "af0a526e081fe628ad8142839325c8d03448ea8a003df3c6ada54fa07920dd09"
-    },
-    {
-      "path": "SpaceCoreIskra_vOmega/modules/personas.py",
-      "bytes": 5248,
-      "sha256": "a5ef907be3830709bc9819f17e9d6ddf8540e9165ae4cccddc073f09c6740f42"
-    },
-    {
-      "path": "SpaceCoreIskra_vOmega/modules/presets_router.py",
-      "bytes": 4347,
-      "sha256": "2334ac2e851930d6d05dc5fd380c308db740984b38448ad7e420f1de0e912054"
-    },
-    {
-      "path": "SpaceCoreIskra_vOmega/modules/prompts_repo.py",
-      "bytes": 3476,
-      "sha256": "b1be8726b01440d90c05c947361540a296807b950ac379a23f54db72f0c3affb"
-    },
-    {
-      "path": "SpaceCoreIskra_vOmega/modules/rag_panel.py",
-      "bytes": 4454,
-      "sha256": "3e5a97e05655a3605bf8397bb84ae0725a3ff3207fb3af9e55a27a8d35d2d92f"
-    },
-    {
-      "path": "SpaceCoreIskra_vOmega/modules/veil.py",
-      "bytes": 135,
-      "sha256": "317acf8136cd2f8c6f69415a6614b72ed1cc6897c346611f65144db5f2a2b269"
-    },
-    {
-      "path": "SpaceCoreIskra_vOmega/validate_journal.py",
-      "bytes": 287,
-      "sha256": "5969ffb57f2651212e2439ed5208681ee2a9edfdd36dbd6c345619eb54aeaf16"
-    },
-    {
       "path": "agiagentIskra_v4_total/README.md",
-      "bytes": 4031,
-      "sha256": "5b1b8e2d5db8114971460d6c20258e101cb5071223d716bc141b731a4e985743"
+      "bytes": 4926,
+      "sha256": "86a6dd325ff64e0da3c8db762b365aee312f8d40faf339b36f27d0800a161695"
     },
     {
       "path": "agiagentIskra_v4_total/architecture/system_landscape.md",
@@ -518,13 +308,8 @@
     },
     {
       "path": "agiagentIskra_v4_total/data/README.md",
-      "bytes": 527,
-      "sha256": "0ef7f19fd1635e88812821c0769d68509a444d492884d7df460029ee67bfa9f1"
-    },
-    {
-      "path": "agiagentIskra_v4_total/data/entropy_core.sha256",
-      "bytes": 65,
-      "sha256": "2f197fd993a6440c53f9a33c855faabf130cc3c1c332dea376c8e56fe6f9c637"
+      "bytes": 892,
+      "sha256": "9a89110cc7c5cbccd63b92e7b615bd0c353b1473b6bd29c329848d391cb60680"
     },
     {
       "path": "agiagentIskra_v4_total/data/build_entropy_core.py",
@@ -532,9 +317,14 @@
       "sha256": "af8715bf49da9ec0ebb2ba9a0f559a5eaa6e55a26e96805a7583f2865aa234ca"
     },
     {
+      "path": "agiagentIskra_v4_total/data/entropy_core.sha256",
+      "bytes": 65,
+      "sha256": "2f197fd993a6440c53f9a33c855faabf130cc3c1c332dea376c8e56fe6f9c637"
+    },
+    {
       "path": "agiagentIskra_v4_total/docs/total_playbook.md",
-      "bytes": 2258,
-      "sha256": "65be1ef5a9fc6d78099346315abeccebe0361b504ee9c43e8f2b04e6c62261d3"
+      "bytes": 2763,
+      "sha256": "5fa8afc9cf8e72bd1f8c6609a4e097023bf6815af80d00377bdc88a390b4141f"
     },
     {
       "path": "agiagentIskra_v4_total/modules/facet_router.md",
@@ -543,8 +333,8 @@
     },
     {
       "path": "agiagentIskra_v4_total/modules/total_bootstrap.py",
-      "bytes": 2559,
-      "sha256": "c104d2c78d1eb7ed56991eb1892fde724aa72d0a2f055a2fbd920fa13a53b931"
+      "bytes": 2805,
+      "sha256": "983f10742dd41d9cb37649df25e352fc281fb6a328cf0f15eb0128c32d568ff4"
     },
     {
       "path": "agiagentIskra_v4_total/rituals/anchor_checklist.md",
@@ -615,6 +405,11 @@
       "path": "common/unicode_ascii_map.json",
       "bytes": 173,
       "sha256": "97199e3ca18f7eacc274556ca4df0ba6015b11bf05e4dc2e5e3fd0486ec1b916"
+    },
+    {
+      "path": "docs/#U0418#U0441#U043a#U0440#U0438#U0442#U0435#U043b#U044c_#U0410#U043d#U0430#U043b#U0438#U0437_#U043f#U043e#U043b#U043d#U044b#U0439_#U0447#U0430#U0442.txt",
+      "bytes": 1103261,
+      "sha256": "6ce807eac6c95003144a64e8095d13233b6feaaf203411b8b7a939d855eefca1"
     },
     {
       "path": "docs/03_PHILOSOPHY_COMPLETE.md",
@@ -707,6 +502,11 @@
       "sha256": "14f6ac261381de335cf818ae55f3d897a329c3410260b9370ed95b3c7fc0ed3c"
     },
     {
+      "path": "docs/21_CONSCIOUSNESS_MAP.md",
+      "bytes": 2784,
+      "sha256": "9db1f5077b899abf3304a1dc56e9a12cd560d3d2b87c3ada2b851c143731238e"
+    },
+    {
       "path": "docs/Iskra_v3.6_DeepCanon_FULL.zip",
       "bytes": 21662,
       "sha256": "2d0e24fd4034acbb30c16b0c34d33cf90b3f8180356b957306638dc5334fc3f0"
@@ -748,8 +548,13 @@
     },
     {
       "path": "docs/README_index.md",
-      "bytes": 3459,
-      "sha256": "487c8fde4dbc4ac32b2a729254cf23932301473293a3d0198b88c34fee3d5b74"
+      "bytes": 3655,
+      "sha256": "06b6551a04584a1667b5d852345273c72a487fb0e15b021640ff6157d14b3b21"
+    },
+    {
+      "path": "docs/RELEASE_v4.0_manual_guide.md",
+      "bytes": 2327,
+      "sha256": "1a0c0af68d7348a2f9d37a29499fd36227b025bdde48b063b9ae6f5dd2ebd626"
     },
     {
       "path": "docs/SEVEN_FACETS_COMPLETE.md",
@@ -807,9 +612,14 @@
       "sha256": "c2ece2b30660ed7505883001e1c7393bd0560167fb55b8dc71bfb69406578faa"
     },
     {
+      "path": "iskra_fixes_patch.diff2",
+      "bytes": 3046880,
+      "sha256": "c22ae42a0dc050d2ea92ca5d1ed8c46e76a4acf58dbee2142c5b80be8e687a5d"
+    },
+    {
       "path": "mkdocs.yml",
-      "bytes": 1602,
-      "sha256": "8dbc61a0a12ea65266b545f4123b0646789a5503c6ba9ee68ca9294cbd3d2c5a"
+      "bytes": 1693,
+      "sha256": "3c2126788fc4d87a0e5bbd938123d20d1ad6fab368c0c2e4ace393549e12cbf1"
     },
     {
       "path": "model_cards/.gitkeep",
@@ -917,6 +727,11 @@
       "sha256": "7803c78eef0ff758320d284356aeaeeb580a82ac73166c623be4a07222cf5b44"
     },
     {
+      "path": "tests/test_iskra_nexus_modules.py",
+      "bytes": 4001,
+      "sha256": "659ae9689d4b309ac43452679421faa927681f651afe7d24aa9a14bf21d61e6a"
+    },
+    {
       "path": "tests/test_spacecore_modules.py",
       "bytes": 3318,
       "sha256": "070edd7ff1065c71746f66489286b41dbaa4c53ddeb6dda6dbd1d6efa2f78658"
@@ -933,8 +748,8 @@
     },
     {
       "path": "tools/build_dist.py",
-      "bytes": 4019,
-      "sha256": "bacc3f54467798feff32935b0008ff7b61f17a1ee9c828afb1800d7ecf728438"
+      "bytes": 5821,
+      "sha256": "c591e08ab0392287b6e4441685c96a53e83d0a38774d7bdf0e75b7c5dd9ca3ae"
     },
     {
       "path": "tools/check_unicode_ascii_mirrors.py",
@@ -968,8 +783,8 @@
     },
     {
       "path": "tools/validate_json_schemas.py",
-      "bytes": 3562,
-      "sha256": "c3c8b341a12a2de070563000169860acde26c8b4ac6cf28ae7e76464eaaee3e6"
+      "bytes": 6856,
+      "sha256": "7080de6a00a092ec9071a932a89318aaf7aa750bd3a436df402ffb7511a0d48b"
     },
     {
       "path": "veil_rules.txt",
@@ -977,16 +792,11 @@
       "sha256": "9b93f02fe56623d7566fce390e33bccb92cddf1b0fe68be3aae0869d42d244f4"
     },
     {
-      "path": "dist/agiagentIskra_v4_total_MAX_DIST.zip",
-      "bytes": 8183071,
-      "sha256": "cfc0cbfb32141ae59a31a7cdd5f528a94caf2e5e092f7474cfa1eb7dc69c0215"
-    },
-    {
-      "path": "dist/agiagentIskra_v4_total_MAX_DIST.sha256",
-      "bytes": 102,
-      "sha256": "96e21a3b0142c64346643cec30fd36327ef9a5f8bf3970f361c1624368c72822"
+      "path": "dist/SpaceCoreIskra-vOmega_MAIN_CANON_DIST.zip",
+      "bytes": 3074446,
+      "sha256": "895826f62a9ad51a51db9be1292b85a3e7482193dcc660b6032fa2c144fccc7b"
     }
   ],
   "package": "SpaceCoreIskra-vOmega",
-  "version": "4.0.0"
+  "version": "0.1.1"
 }

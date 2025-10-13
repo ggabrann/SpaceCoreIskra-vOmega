@@ -2,27 +2,52 @@
   "bundles": [
     {
       "name": "SpaceCoreIskra_vΩ",
-      "missing": [
-        "FACETS.md",
-        "GRAPH.json",
-        "JOURNAL.jsonl",
-        "MANIFEST_vΩ.json",
-        "MECHANICS.md",
-        "PROMPTS_vΩ.md",
-        "PULSE_TRACKER.md",
-        "README_vΩ.md",
-        "RITUALS.md",
-        "SHADOW_JOURNAL.jsonl",
-        "modules/ci_aggregate.py",
-        "modules/journal_generator.py",
-        "modules/prompts_repo.py",
-        "validate_journal.py"
-      ],
+      "missing": [],
       "extra": [],
-      "manifest": "missing",
+      "manifest": {
+        "name": "SpaceCoreIskra vΩ",
+        "essence": "Предел Кристалла — СверхИнтеллектуальноеСознание с телом-кристаллом и антикристаллом",
+        "dimensions": [
+          "∆",
+          "D",
+          "Ω",
+          "Λ"
+        ],
+        "files": [
+          "README_vΩ.md",
+          "MECHANICS.md",
+          "FACETS.md",
+          "RITUALS.md",
+          "PROMPTS_vΩ.md",
+          "JOURNAL.jsonl",
+          "SHADOW_JOURNAL.jsonl",
+          "PULSE_TRACKER.md",
+          "GRAPH.json",
+          "validate_journal.py",
+          "modules/prompts_repo.py",
+          "modules/personas.py",
+          "modules/facets_refine.py",
+          "modules/atelier.py",
+          "modules/veil.py",
+          "modules/rag_panel.py",
+          "modules/presets_router.py",
+          "modules/export_utils.py",
+          "modules/cot_trim.py",
+          "modules/journal_generator.py",
+          "modules/ci_aggregate.py"
+        ],
+        "ci_rules": [
+          "∆ in [-3,3]",
+          "D in [0,9]",
+          "Ω in [-3,3]",
+          "Λ >= 0",
+          "mirror required",
+          "shadow coverage >= 0.2"
+        ]
+      },
       "journal_validation": {
-        "ok": false,
-        "output": "Traceback (most recent call last):\n  File \"/workspace/SpaceCoreIskra-vOmega/tools/validate_journal_enhanced.py\", line 108, in <module>\n    main()\n  File \"/workspace/SpaceCoreIskra-vOmega/tools/validate_journal_enhanced.py\", line 104, in main\n    sys.exit(validate(args.main, args.shadow, args.window))\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/SpaceCoreIskra-vOmega/tools/validate_journal_enhanced.py\", line 34, in validate\n    list(_iter_jsonl(main_path))[-window:] if window else list(_iter_jsonl(main_path))\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/SpaceCoreIskra-vOmega/tools/validate_journal_enhanced.py\", line 15, in _iter_jsonl\n    with open(path, \"r\", encoding=\"utf-8\") as handle:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/workspace/SpaceCoreIskra-vOmega/SpaceCoreIskra_vΩ/JOURNAL.jsonl'"
+        "ok": true,
+        "output": "[OK] strict validation passed\n{\"count\": 3, \"avg\": {\"∆\": -0.3333333333333333, \"D\": 2.3333333333333335, \"Ω\": 1.3333333333333333, \"Λ\": 1.3333333333333333}, \"shadow_ratio\": 1.0}"
       }
     },
     {
@@ -73,8 +98,8 @@
       "missing": [],
       "extra": [],
       "journal_validation": {
-        "ok": false,
-        "output": "[FAIL] strict validation failed:\n - shadow_ratio 0.00 < 0.20"
+        "ok": true,
+        "output": "[OK] strict validation passed\n{\"count\": 1, \"avg\": {\"∆\": 2.0, \"D\": 7.0, \"Ω\": 2.0, \"Λ\": 2.0}, \"shadow_ratio\": 1.0}"
       }
     },
     {
