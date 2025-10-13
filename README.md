@@ -14,10 +14,28 @@
 | **GitHub Pages**| ✅ Active | Документация доступна. |
 ---
 ## Как запустить локально
-```bash
-make setup
-make test
-```
+1. Подготовьте окружение и зависимости:
+   ```bash
+   make setup  # alias: make deps
+   ```
+2. Выполните проверки перед разработкой:
+   ```bash
+   make format        # автоформатирование black
+   make lint          # статический анализ ruff
+   make typecheck     # mypy для инструментов
+   make test          # pytest + журнальные проверки
+   make schemas       # JSON-схемы канона
+   make unicode       # синхронизация Unicode↔ASCII
+   make security      # veil/ethics guardrails
+   ```
+3. Для полного пайплайна DoD используйте:
+   ```bash
+   make ci
+   ```
+4. Сборка релизного артефакта:
+   ```bash
+   make release
+   ```
 Полная документация на [GitHub Pages](https://github.com/ggabrann/SpaceCoreIskra-vOmega/pages).
 
 ## Вклад и рабочий процесс
