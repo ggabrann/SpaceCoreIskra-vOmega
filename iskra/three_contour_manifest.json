@@ -1,0 +1,24 @@
+{
+  "projects": {
+    "description": "Assets for ChatGPT Projects (memory skeleton, bootstrap).",
+    "include": [
+      {"source": "iskra/builds/projects", "target": "."},
+      {"source": "docs/specs/iskra_v3.1_three_contour_spec.md", "target": "docs/specs/iskra_v3.1_three_contour_spec.md"}
+    ]
+  },
+  "custom_gpt": {
+    "description": "Profile and scenarios for OpenAI Custom GPT.",
+    "include": [
+      {"source": "iskra/builds/custom_gpt", "target": "."},
+      {"source": "docs/specs/iskra_v3.1_three_contour_spec.md", "target": "docs/specs/iskra_v3.1_three_contour_spec.md"}
+    ]
+  },
+  "github": {
+    "description": "Canonical GitHub repository skeleton.",
+    "include": [
+      {"source": "iskra/builds/github", "target": "."},
+      {"source": "docs/specs/iskra_v3.1_three_contour_spec.md", "target": "docs/specs/iskra_v3.1_three_contour_spec.md"},
+      {"source": "docs/base.txt", "target": "canon/base.txt"}
+    ]
+  }
+}
