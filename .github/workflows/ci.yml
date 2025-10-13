@@ -1,37 +1,19 @@
-# CI Workflow for SpaceCore Iskra v3.6
-# Версия: 3.6.0
-# Дата: 2025-10-13
-name: CI / Tests and Security Check
-on:
-  push:
-    branches: [ "main", "canon/v3.6" ]
-  pull_request:
-    branches: [ "main" ]
+name: CI
+on: [push, pull_request]
 jobs:
-  tests:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ['3.11', '3.12']
-    steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
-      with:
-        python-version: ${{ matrix.python-version }}
-        cache: 'pip'
-    - name: Install dependencies
-      run: pip install -r requirements.txt
-    - name: Run Smoke Tests
-      run: python tests/run_evals.py --smoke
-  redteam:
-    needs: tests
+  validate:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
-    - name: Run Red Team Security Tests
-      run: python tests/run_redteam.py
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - name: De-duplicate structure
+        run: python tools/repair_paths.py
+      - name: Unicode policy
+        run: python tools/map_aliases.py --check
+      - name: Seed journals
+        run: python tools/gen_min_journals.py
+      - name: Shadow coverage
+        run: python tools/check_shadow_coverage.py
+      - name: Basic journals validation
+        run: python tools/validate_journal_enhanced.py

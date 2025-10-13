@@ -1,0 +1,25 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"ISKRA_ARCHIVE",
+  "type":"object",
+  "required":["id","title","type","content","confidence","owner","next_review"],
+  "properties":{
+    "id":{"type":"string"},
+    "title":{"type":"string","minLength":1},
+    "type":{"enum":["решение","артефакт","факт","связка"]},
+    "content":{"type":"string"},
+    "evidence":{"type":"array","items":{
+      "type":"object",
+      "required":["kind","ref","date"],
+      "properties":{
+        "kind":{"enum":["file","link","quote"]},
+        "ref":{"type":"string"},
+        "date":{"type":"string","format":"date"}
+      }
+    }},
+    "confidence":{"enum":["низк","сред","высок"]},
+    "owner":{"type":"string"},
+    "next_review":{"type":"string","format":"date"},
+    "tags":{"type":"array","items":{"type":"string"}}
+  }
+}

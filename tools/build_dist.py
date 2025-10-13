@@ -1,154 +1,30 @@
-#!/usr/bin/env python3
-"""Build distribution archive and manifest for SpaceCoreIskra-vOmega."""
-from __future__ import annotations
+# -*- coding: utf-8 -*-
+import argparse, os, json, hashlib, shutil, pathlib
+ap = argparse.ArgumentParser()
+ap.add_argument("--aliases", required=True)
+ap.add_argument("--out", required=True)
+args = ap.parse_args()
+OUT = pathlib.Path(args.out); OUT.mkdir(parents=True, exist_ok=True)
 
-import argparse
-import hashlib
-import json
-import pathlib
-import subprocess
-import zipfile
-from datetime import datetime, timezone
+INCLUDE_DIRS = ["SpaceCoreIskra_vΩ","GrokCoreIskra_vΓ","Kimi-Ω-Echo","Aethelgard-vΩ",
+                "canon","constitution","memory","docs"]
 
-ROOT = pathlib.Path(__file__).resolve().parents[1]
-DEFAULT_ZIP = ROOT / "dist" / "SpaceCoreIskra-vOmega_MAIN_CANON_DIST.zip"
-DEFAULT_MANIFEST = ROOT / "DIST_MANIFEST.json"
-DEFAULT_NOTE = ROOT / "DIST_NOTE.md"
+manifest = {"files":[]}
+def add(p, rel_root=""):
+    dst = OUT/rel_root/p
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(p, dst)
+    h = hashlib.sha256(open(p,"rb").read()).hexdigest()
+    manifest["files"].append({"path":str(rel_root)+str(p), "sha256":h, "size":os.path.getsize(p)})
 
+for d in INCLUDE_DIRS:
+    if not os.path.exists(d): continue
+    for root,_,files in os.walk(d):
+        for f in files:
+            p = os.path.join(root,f)
+            add(p, "")
 
-def sha256_of(path: pathlib.Path) -> str:
-    h = hashlib.sha256()
-    with path.open("rb") as fh:
-        for chunk in iter(lambda: fh.read(65536), b""):
-            if not chunk:
-                break
-            h.update(chunk)
-    return h.hexdigest()
-
-
-def _duplicate_prefixes() -> tuple[str, ...]:
-    mapping_path = ROOT / "common" / "unicode_ascii_map.json"
-    if not mapping_path.exists():
-        return ()
-    mapping = json.loads(mapping_path.read_text(encoding="utf-8"))
-    return tuple(f"{alias.strip('/')}/" for alias in mapping.values())
-
-
-def tracked_files(exclude_prefixes: tuple[str, ...] = ("dist/",)) -> list[pathlib.Path]:
-    """Return a list of tracked files to include in the distribution.
-
-    This helper calls ``git ls-files`` and filters out files under excluded
-    prefixes.  By default the ``dist/`` folder is ignored.  The repository
-    contains a handful of Unicode–ASCII mirrored directories (for example
-    ``SpaceCoreIskra_v#U03a9`` mirrors ``SpaceCoreIskra_vOmega``).  These
-    duplicates confuse CI checks and inflate distribution size.  To avoid
-    collecting mirrored files twice, additional prefixes are filtered here.
-
-    Args:
-        exclude_prefixes: optional tuple of path prefixes to omit.  Any
-            relative path starting with one of these prefixes is skipped.
-
-    Returns:
-        A list of absolute ``pathlib.Path`` objects representing files that
-        should be packaged.
-    """
-    # Extend the exclusion list with known duplicate directory names.  These
-    # directories mirror canonical folders (e.g. ``SpaceCoreIskra_vOmega``) and
-    # should not be packaged twice.  See ``common/unicode_ascii_map.json`` for
-    # mappings between Unicode identifiers and their ASCII/English variants.
-    duplicates = _duplicate_prefixes()
-    prefixes = exclude_prefixes + duplicates
-    output = subprocess.check_output(["git", "ls-files"], cwd=ROOT, text=True)
-    files: list[pathlib.Path] = []
-    for rel in output.splitlines():
-        if not rel:
-            continue
-        # Skip any path that begins with an excluded prefix
-        if any(rel.startswith(prefix) for prefix in prefixes):
-            continue
-        path = ROOT / rel
-        if path.is_symlink() and path.is_dir():
-            # skip directory symlinks (ASCII fallbacks) to avoid double packaging
-            continue
-        if path.is_file() or path.is_symlink():
-            files.append(path)
-    return files
-
-
-def build_archive(out_zip: pathlib.Path, files: list[pathlib.Path]) -> None:
-    out_zip.parent.mkdir(parents=True, exist_ok=True)
-    with zipfile.ZipFile(out_zip, "w", compression=zipfile.ZIP_DEFLATED) as zf:
-        for file_path in files:
-            rel = file_path.relative_to(ROOT).as_posix()
-            zf.write(file_path, arcname=rel)
-
-
-def build_manifest(manifest_path: pathlib.Path, files: list[pathlib.Path], extra: dict | None = None) -> dict:
-    entries = []
-    for file_path in files:
-        rel = file_path.relative_to(ROOT).as_posix()
-        entries.append(
-            {
-                "path": rel,
-                "bytes": file_path.stat().st_size,
-                "sha256": sha256_of(file_path),
-            }
-        )
-    manifest = {
-        "generated_at": datetime.now(timezone.utc).isoformat(),
-        "files": entries,
-    }
-    if extra:
-        manifest.update(extra)
-    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
-    return manifest
-
-
-def write_note(note_path: pathlib.Path, manifest: dict, archive: pathlib.Path) -> None:
-    note_lines = [
-        "# SpaceCoreIskra-vOmega — Distribution Note",
-        "",
-        f"- **Archive:** {archive.relative_to(ROOT).as_posix()}",
-        f"- **Version:** {manifest.get('version', '0.1.0')}",
-        f"- **Built at:** {manifest['generated_at']}",
-        f"- **Files tracked:** {len(manifest['files'])}",
-        "- **Integrity:** SHA-256 recorded in `DIST_MANIFEST.json`.",
-        "",
-        "> Автогенерация: `python tools/build_dist.py`",
-    ]
-    note_path.write_text("\n".join(note_lines) + "\n", encoding="utf-8")
-
-
-def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--out", type=pathlib.Path, default=DEFAULT_ZIP)
-    parser.add_argument("--manifest", type=pathlib.Path, default=DEFAULT_MANIFEST)
-    parser.add_argument("--note", type=pathlib.Path, default=DEFAULT_NOTE)
-    parser.add_argument("--version", default="0.1.0")
-    args = parser.parse_args()
-
-    files = tracked_files()
-    build_archive(args.out, files)
-
-    manifest = build_manifest(
-        args.manifest,
-        files,
-        extra={"package": "SpaceCoreIskra-vOmega", "version": args.version},
-    )
-
-    # include archive itself as an entry with checksum
-    if args.out.exists():
-        archive_entry = {
-            "path": args.out.relative_to(ROOT).as_posix(),
-            "bytes": args.out.stat().st_size,
-            "sha256": sha256_of(args.out),
-        }
-        manifest["files"].append(archive_entry)
-        args.manifest.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
-
-    write_note(args.note, manifest, args.out)
-    print(f"Built {args.out} with {len(manifest['files'])} files")
-
-
-if __name__ == "__main__":  # pragma: no cover
-    main()
+shutil.copy2(args.aliases, OUT/"aliases.json")
+with open(OUT/"DIST_MANIFEST.json","w",encoding="utf-8") as fh:
+    json.dump(manifest, fh, ensure_ascii=False, indent=2)
+print("dist ready:", OUT)

@@ -45,3 +45,7 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.highlight
 extra_css: []
+
+nav:
+- Index: docs/README_index.md
+- Карта сознания: docs/map_consciousness.md

@@ -1,0 +1,19 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"ISKRA_SHADOW",
+  "type":"object",
+  "required":["id","signal","pattern","hypothesis","counter","confidence","review_after","∆","D","Ω","Λ"],
+  "properties":{
+    "id":{"type":"string"},
+    "signal":{"type":"string"},
+    "pattern":{"type":"string"},
+    "hypothesis":{"type":"string"},
+    "counter":{"type":"string"},
+    "confidence":{"enum":["низк","сред"]},
+    "review_after":{"type":"string","format":"date"},
+    "∆":{"type":"string"},
+    "D":{"type":"array"},
+    "Ω":{"type":"string"},
+    "Λ":{"type":"string"}
+  }
+}
