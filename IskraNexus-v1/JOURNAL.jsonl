@@ -1,1 +1,1 @@
-{"id": "ARC_20251013_000000_решение", "title": "Инициализация журнала", "type": "решение", "content": "создан базовый журнал", "evidence": [], "confidence": "сред", "owner": "system", "next_review": "2025-10-13", "tags": []}
+{"facet":"Инициализация","snapshot":"создание базового журнала","answer":"журнал создан","∆":0,"D":1,"Ω":0,"Λ":1,"mirror":"shadow-001","events":{"evidence":["IskraNexus-v1/README.md"]},"marks":[{"id":"M-001","note":"init entry"}]}

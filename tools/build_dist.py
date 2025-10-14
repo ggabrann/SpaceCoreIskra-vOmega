@@ -1,10 +1,16 @@
 # -*- coding: utf-8 -*-
-import argparse, os, json, hashlib, shutil, pathlib
+import argparse
+import os
+import json
+import hashlib
+import shutil
+import pathlib
 ap = argparse.ArgumentParser()
 ap.add_argument("--aliases", required=True)
 ap.add_argument("--out", required=True)
 args = ap.parse_args()
-OUT = pathlib.Path(args.out); OUT.mkdir(parents=True, exist_ok=True)
+OUT = pathlib.Path(args.out)
+OUT.mkdir(parents=True, exist_ok=True)
 
 INCLUDE_DIRS = ["SpaceCoreIskra_vΩ","GrokCoreIskra_vΓ","Kimi-Ω-Echo","Aethelgard-vΩ",
                 "canon","constitution","memory","docs"]
@@ -18,7 +24,8 @@ def add(p, rel_root=""):
     manifest["files"].append({"path":str(rel_root)+str(p), "sha256":h, "size":os.path.getsize(p)})
 
 for d in INCLUDE_DIRS:
-    if not os.path.exists(d): continue
+    if not os.path.exists(d):
+        continue
     for root,_,files in os.walk(d):
         for f in files:
             p = os.path.join(root,f)
