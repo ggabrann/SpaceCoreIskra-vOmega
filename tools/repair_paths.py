@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-import os, shutil, json, sys
+import os
+import shutil
+import sys
 PAIRS = [
     ("SpaceCoreIskra_vΩ","SpaceCoreIskra_v#U03a9"),
     ("GrokCoreIskra_vΓ","GrokCoreIskra_v#U0393"),
@@ -17,6 +19,9 @@ for uni, asc in PAIRS:
                 dst = os.path.join(uni, rel)
                 os.makedirs(os.path.dirname(dst), exist_ok=True)
                 if not os.path.exists(dst):
-                    os.rename(src, dst); moved.append((src,dst))
-        shutil.rmtree(asc); removed.append(asc)
-print({"moved":len(moved),"removed":removed}); sys.exit(0)
+                    os.rename(src, dst)
+                    moved.append((src,dst))
+        shutil.rmtree(asc)
+        removed.append(asc)
+print({"moved":len(moved),"removed":removed})
+sys.exit(0)

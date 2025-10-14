@@ -55,7 +55,7 @@ class ExpectedBundle:
 
 def _run_validator(main: Path, shadow: Path | None) -> tuple[bool, str]:
     cmd = [
-        "python",
+        ".venv/bin/python",
         str((REPO_ROOT / "tools" / "validate_journal_enhanced.py").resolve()),
         str(main),
     ]
