@@ -1,0 +1,68 @@
+# Docker Compose configuration for SpaceCoreIskra vΩ
+# Version: 0.1.0-dev0
+
+version: '3.8'
+
+services:
+  # Main Iskra service
+  iskra:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: spacecoreiskra
+    image: spacecoreiskra:${VERSION:-0.1.0-dev0}
+    environment:
+      - ISKRA_LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - ISKRA_STRUCTURED_LOGS=${STRUCTURED_LOGS:-true}
+    volumes:
+      - ./logs:/app/logs
+      - ./JOURNAL.jsonl:/app/JOURNAL.jsonl:ro
+    restart: unless-stopped
+    networks:
+      - iskra-network
+
+  # Development environment
+  iskra-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: spacecoreiskra-dev
+    environment:
+      - ISKRA_LOG_LEVEL=DEBUG
+      - ISKRA_STRUCTURED_LOGS=true
+    volumes:
+      - .:/app
+      - ./logs:/app/logs
+    ports:
+      - "8000:8000"  # For future HTTP endpoints
+    command: /bin/bash
+    stdin_open: true
+    tty: true
+    networks:
+      - iskra-network
+
+  # Test runner
+  iskra-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: test
+    container_name: spacecoreiskra-test
+    environment:
+      - ISKRA_LOG_LEVEL=DEBUG
+    volumes:
+      - .:/app
+      - ./test-results:/app/test-results
+    command: make ci
+    networks:
+      - iskra-network
+
+networks:
+  iskra-network:
+    driver: bridge
+
+volumes:
+  logs:
+    driver: local
