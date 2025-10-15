@@ -1,6 +1,6 @@
 [project]
 name = "spacecoreiskra"
-version = "0.1.0.dev0"
+version = "4.0.0"
 description = "Release-hardened canon orchestration for SpaceCoreIskra"
 requires-python = ">=3.10"
 authors = [
