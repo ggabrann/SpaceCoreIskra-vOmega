@@ -1,0 +1,40 @@
+{
+  "report_id": "cd-index_v0_20251025",
+  "version": "0.1.0",
+  "model_name": "TELOS-Delta-PoC-v0",
+  "description": "CD-Index (Compliance-Driven Index) - Базовый отчет о метриках для Фазы-0 (vLLM + pgvector RAG).",
+  "metrics": {
+    "faithfulness": {
+      "value": 0.85,
+      "target": 0.95,
+      "unit": "ratio",
+      "definition": "Консистентность сгенерированного ответа с предоставленным контекстом (RAGAS)."
+    },
+    "groundedness": {
+      "value": 0.92,
+      "target": 0.98,
+      "unit": "ratio",
+      "definition": "Доля утверждений в ответе, подтвержденных источниками (RAGAS)."
+    },
+    "latency_p95_ms": {
+      "value": 450,
+      "target": 300,
+      "unit": "ms",
+      "definition": "95-й перцентиль задержки ответа (end-to-end)."
+    },
+    "citation_coverage": {
+      "value": 0.99,
+      "target": 1.0,
+      "unit": "ratio",
+      "definition": "Доля ответов, содержащих ссылки на источник (строгая атрибуция)."
+    }
+  },
+  "canon_review_gate": {
+    "status": "OPEN",
+    "required_score": 0.90,
+    "current_score": 0.88,
+    "last_run": "2025-10-25T10:00:00Z",
+    "notes": "Gate is currently OPEN for PoC, but the current score (0.88) is below the required threshold (0.90) for a production release. Need to improve RAG quality."
+  }
+}
+
